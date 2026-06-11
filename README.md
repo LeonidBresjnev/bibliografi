@@ -80,11 +80,6 @@ studies on salmonella incidence in eight European countries: no
 correlation with incidence of reported cases. *BMC public health*,
 2012;12:523.
 
-Fogh K, Eriksen ARR, Larsen TG, et al. A Cross-Sectional Study of
-SARS-CoV-2 Antibodies and Risk Factors for Seropositivity in Staff in
-Day Care Facilities and Preschools in Denmark. *Microbiology spectrum*,
-2023;11:e0417,422.
-
 Frisch M, Simonsen J. Marriage, cohabitation and mortality in Denmark:
 national cohort study of 6.5 million persons followed for up to three
 decades (1982-2011). *International journal of epidemiology*,
@@ -119,9 +114,6 @@ journal of epidemiology*, 2022b;37:251–259.
 Frisch M, Ulff-Møller CJ, Simonsen J. Questionable evidence of
 increasing incidence of invasive penile cancer in Denmark. *Cancer
 causes & control : CCC*, 2012;23:659–60; author reply 661–2.
-
-Frisch T, Simonsen L, Hilden J. . *Ugeskrift for laeger*,
-1991;153:1864–1868.
 
 Helms M, Simonsen J, Molbak K. Quinolone resistance is associated with
 increased risk of invasive illness or death during infection with
@@ -170,11 +162,6 @@ and infection*, 2009a;137:1631–1640.
 Howitz MF, Simonsen J, Krause TG, et al. Risk of adverse birth outcome
 after group B meningococcal disease: results from a Danish national
 cohort. *The Pediatric infectious disease journal*, 2009b;28:199–203.
-
-Hvid U, Simonsen L, Frisch M, et al. Relationship dynamics and
-behavioral adaptations in the control of the 2022 mpox epidemic.
-*Proceedings of the National Academy of Sciences of the United States of
-America*, 2025;122:e2502861,122.
 
 Jepsen MR, Simonsen J, Ethelberg S. Spatio-temporal cluster analysis of
 the incidence of Campylobacter cases and patients with general diarrhea
@@ -245,10 +232,6 @@ Case-Control Study. *Clinical infectious diseases : an official
 publication of the Infectious Diseases Society of America*,
 2017;64:845–851.
 
-Lei U, Wohlfahrt J, Hjalgrim H, et al. Neonatal level of
-thyroid-stimulating hormone and acute childhood leukemia. *International
-journal of cancer*, 2000;88:486–488.
-
 Linneberg A, Simonsen JB, Petersen J, et al. Differential effects of
 risk factors on infant wheeze and atopic dermatitis emphasize a
 different etiology. *The Journal of allergy and clinical immunology*,
@@ -275,12 +258,16 @@ journal of pediatrics*, 2012;171:173–179.
 Nielsen NM, Harpsøe M, Simonsen J, et al. Age at Menarche and Risk of
 Multiple Sclerosis: A Prospective Cohort Study Based on the Danish
 National Birth Cohort. *American journal of epidemiology*,
-2017;185:712–719.
+2017a;185:712–719.
 
 Nielsen NM, Harpsøe MC, Simonsen J, et al. Self-rated health in women
 prior to clinical onset of multiple sclerosis: A study within the Danish
 National Birth Cohort. *Multiple sclerosis (Houndmills, Basingstoke,
 England)*, 2016;22:1444–1451.
+
+Nielsen NM, Munger KL, Koch-Henriksen N, et al. Neonatal vitamin D
+status and risk of multiple sclerosis: A population-based case-control
+study. *Neurology*, 2017b;88:44–51.
 
 Ranthe MF, Diaz LJ, Behrens I, et al. Association between pregnancy
 losses in women and risk of atherosclerotic disease in their relatives:
@@ -568,11 +555,6 @@ cohort study. *Clinical gastroenterology and hepatology : the official
 clinical practice journal of the American Gastroenterological
 Association* 2015;**13**:693–700.e1.
 
-Hvid U, Simonsen L, Frisch M, Sneppen K. Relationship dynamics and
-behavioral adaptations in the control of the 2022 mpox epidemic.
-*Proceedings of the National Academy of Sciences of the United States of
-America* 2025;**122**:e2502861122.
-
 Frisch M, Simonsen J. Non-therapeutic male circumcision in infancy or
 childhood and risk of human immunodeficiency virus and other sexually
 transmitted infections: national cohort study in denmark. *European
@@ -635,9 +617,6 @@ prior to clinical onset of multiple sclerosis: A study within the danish
 national birth cohort. *Multiple sclerosis (Houndmills, Basingstoke,
 England)* 2016;**22**:1444–1451.
 
-Frisch T, Simonsen L, Hilden J. . *Ugeskrift for laeger*
-1991;**153**:1864–1868.
-
 Frisch M, Ulff-Møller CJ, Simonsen J. Questionable evidence of
 increasing incidence of invasive penile cancer in denmark. *Cancer
 causes & control : CCC* 2012;**23**:659–60; author reply 661–2.
@@ -679,10 +658,6 @@ HA. Association between pregnancy losses in women and risk of
 atherosclerotic disease in their relatives: a nationwide cohort study†.
 *European heart journal* 2016;**37**:900–907.
 
-Lei U, Wohlfahrt J, Hjalgrim H, Hjalgrim LL, Simonsen H, Melbye M.
-Neonatal level of thyroid-stimulating hormone and acute childhood
-leukemia. *International journal of cancer* 2000;**88**:486–488.
-
 Bräuner EV, Forchhammer L, Møller P, *et al.* Exposure to ultrafine
 particles from ambient air and oxidative stress-induced dna damage.
 *Environmental health perspectives* 2007;**115**:1177–1182.
@@ -690,11 +665,6 @@ particles from ambient air and oxidative stress-induced dna damage.
 Damgaard LH, Korsgaard IR, Simonsen J, Dalsgaard O, Andersen AH. The
 effect of ignoring individual heterogeneity in weibull log-normal sire
 frailty models. *Journal of animal science* 2006;**84**:1338–1350.
-
-Fogh K, Eriksen ARR, Larsen TG, *et al.* A cross-sectional study of
-sars-cov-2 antibodies and risk factors for seropositivity in staff in
-day care facilities and preschools in denmark. *Microbiology spectrum*
-2023;**11**:e0417422.
 
 Kvistholm Jensen A, Simonsen J, Ethelberg S. Use of proton pump
 inhibitors and the risk of listeriosis: A nationwide registry-based
@@ -731,6 +701,10 @@ CU. Improved survival for patients diagnosed with chronic lymphocytic
 leukemia in the era of chemo-immunotherapy: a danish population-based
 study of 10455 patients. *Blood cancer journal* 2016;**6**:e499.
 
+Nielsen NM, Munger KL, Koch-Henriksen N, *et al.* Neonatal vitamin d
+status and risk of multiple sclerosis: A population-based case-control
+study. *Neurology* 2017;**88**:44–51.
+
 
 </details>
 
@@ -738,7 +712,7 @@ study of 10455 patients. *Blood cancer journal* 2016;**6**:e499.
 <summary><strong>Biometrika</strong></summary>
 
 
-76 natexlab
+73 natexlab
 
 <span class="smallcaps">Andersohn, F.</span>,
 <span class="smallcaps">Such, P.</span>, <span class="smallcaps">Jan,
@@ -883,45 +857,6 @@ cross-sectional studies on salmonella incidence in eight european
 countries: no correlation with incidence of reported cases. *BMC public
 health* **12**, 523.
 
-<span class="smallcaps">Fogh, K.</span>,
-<span class="smallcaps">Eriksen, A. R. R.</span>,
-<span class="smallcaps">Larsen, T. G.</span>,
-<span class="smallcaps">Hasselbalch, R. B.</span>,
-<span class="smallcaps">Bundgaard, H.</span>,
-<span class="smallcaps">Scharff, B. F. S. S.</span>,
-<span class="smallcaps">Nielsen, S. D.</span>,
-<span class="smallcaps">Jørgensen, C. S.</span>,
-<span class="smallcaps">Erikstrup, C.</span>,
-<span class="smallcaps">Østergaard, L.</span>,
-<span class="smallcaps">Ellermann-Eriksen, S.</span>,
-<span class="smallcaps">Andersen, B.</span>,
-<span class="smallcaps">Nielsen, H.</span>,
-<span class="smallcaps">Johansen, I. S.</span>,
-<span class="smallcaps">Wiese, L.</span>,
-<span class="smallcaps">Hindhede, L.</span>,
-<span class="smallcaps">Mikkelsen, S.</span>,
-<span class="smallcaps">Sækmose, S. G.</span>,
-<span class="smallcaps">Aagaard, B.</span>,
-<span class="smallcaps">Holm, D. K.</span>,
-<span class="smallcaps">Harritshøj, L.</span>,
-<span class="smallcaps">Simonsen, L.</span>,
-<span class="smallcaps">Fischer, T. K.</span>,
-<span class="smallcaps">Folke, F.</span>,
-<span class="smallcaps">Lippert, F.</span>,
-<span class="smallcaps">Ostrowski, S. R.</span>,
-<span class="smallcaps">Benfield, T.</span>,
-<span class="smallcaps">Mølbak, K.</span>,
-<span class="smallcaps">Ethelberg, S.</span>,
-<span class="smallcaps">Koch, A.</span>,
-<span class="smallcaps">Vangsted, A.-M.</span>,
-<span class="smallcaps">Krause, T. G.</span>,
-<span class="smallcaps">Fomsgaard, A.</span>,
-<span class="smallcaps">Ullum, H.</span>, <span class="smallcaps">Skov,
-R.</span> & <span class="smallcaps">Iversen, K.</span> (2023). A
-cross-sectional study of sars-cov-2 antibodies and risk factors for
-seropositivity in staff in day care facilities and preschools in
-denmark. *Microbiology spectrum* **11**, e0417422.
-
 <span class="smallcaps">Frisch, M.</span> &
 <span class="smallcaps">Simonsen, J.</span> (2013). Marriage,
 cohabitation and mortality in denmark: national cohort study of 6.5
@@ -968,11 +903,6 @@ national cohort study in denmark. *European journal of epidemiology*
 <span class="smallcaps">Simonsen, J.</span> (2012). Questionable
 evidence of increasing incidence of invasive penile cancer in denmark.
 *Cancer causes & control : CCC* **23**, 659–60; author reply 661–2.
-
-<span class="smallcaps">Frisch, T.</span>,
-<span class="smallcaps">Simonsen, L.</span> &
-<span class="smallcaps">Hilden, J.</span> (1991). . *Ugeskrift for
-laeger* **153**, 1864–1868.
 
 <span class="smallcaps">Helms, M.</span>,
 <span class="smallcaps">Simonsen, J.</span> &
@@ -1067,14 +997,6 @@ and spatial distribution of meningococcal disease, 1974-2007.
 birth outcome after group b meningococcal disease: results from a danish
 national cohort. *The Pediatric infectious disease journal* **28**,
 199–203.
-
-<span class="smallcaps">Hvid, U.</span>,
-<span class="smallcaps">Simonsen, L.</span>,
-<span class="smallcaps">Frisch, M.</span> &
-<span class="smallcaps">Sneppen, K.</span> (2025). Relationship dynamics
-and behavioral adaptations in the control of the 2022 mpox epidemic.
-*Proceedings of the National Academy of Sciences of the United States of
-America* **122**, e2502861122.
 
 <span class="smallcaps">Jepsen, M. R.</span>,
 <span class="smallcaps">Simonsen, J.</span> &
@@ -1201,15 +1123,6 @@ case-control study. *Clinical infectious diseases : an official
 publication of the Infectious Diseases Society of America* **64**,
 845–851.
 
-<span class="smallcaps">Lei, U.</span>,
-<span class="smallcaps">Wohlfahrt, J.</span>,
-<span class="smallcaps">Hjalgrim, H.</span>,
-<span class="smallcaps">Hjalgrim, L. L.</span>,
-<span class="smallcaps">Simonsen, H.</span> &
-<span class="smallcaps">Melbye, M.</span> (2000). Neonatal level of
-thyroid-stimulating hormone and acute childhood leukemia. *International
-journal of cancer* **88**, 486–488.
-
 <span class="smallcaps">Linneberg, A.</span>,
 <span class="smallcaps">Simonsen, J. B.</span>,
 <span class="smallcaps">Petersen, J.</span>,
@@ -1266,7 +1179,7 @@ journal of pediatrics* **171**, 173–179.
 <span class="smallcaps">Baker, J. L.</span>,
 <span class="smallcaps">Hjalgrim, H.</span>,
 <span class="smallcaps">Frisch, M.</span> &
-<span class="smallcaps">Bager, P.</span> (2017). Age at menarche and
+<span class="smallcaps">Bager, P.</span> (2017a). Age at menarche and
 risk of multiple sclerosis: A prospective cohort study based on the
 danish national birth cohort. *American journal of epidemiology*
 **185**, 712–719.
@@ -1282,6 +1195,20 @@ danish national birth cohort. *American journal of epidemiology*
 women prior to clinical onset of multiple sclerosis: A study within the
 danish national birth cohort. *Multiple sclerosis (Houndmills,
 Basingstoke, England)* **22**, 1444–1451.
+
+<span class="smallcaps">Nielsen, N. M.</span>,
+<span class="smallcaps">Munger, K. L.</span>,
+<span class="smallcaps">Koch-Henriksen, N.</span>,
+<span class="smallcaps">Hougaard, D. M.</span>,
+<span class="smallcaps">Magyari, M.</span>,
+<span class="smallcaps">Jørgensen, K. T.</span>,
+<span class="smallcaps">Lundqvist, M.</span>,
+<span class="smallcaps">Simonsen, J.</span>,
+<span class="smallcaps">Jess, T.</span>, <span class="smallcaps">Cohen,
+A.</span>, <span class="smallcaps">Stenager, E.</span> &
+<span class="smallcaps">Ascherio, A.</span> (2017b). Neonatal vitamin d
+status and risk of multiple sclerosis: A population-based case-control
+study. *Neurology* **88**, 44–51.
 
 <span class="smallcaps">Ranthe, M. F.</span>,
 <span class="smallcaps">Diaz, L. J.</span>,
@@ -1544,20 +1471,6 @@ Karen A.</span> *and others*. (2012, July). Serological cross-sectional
 studies on salmonella incidence in eight european countries: no
 correlation with incidence of reported cases.  **12**, 523.
 
-<span class="smallcaps">Fogh, Kamille, Eriksen, Alexandra R. R., Larsen,
-Tine Graakjær, Hasselbalch, Rasmus B., Bundgaard, Henning, Scharff, Bibi
-F. S. S., Nielsen, Susanne D., Jørgensen, Charlotte S., Erikstrup,
-Christian, Østergaard, Lars, Ellermann-Eriksen, Svend, Andersen, Berit,
-Nielsen, Henrik, Johansen, Isik S., Wiese, Lothar, Hindhede, Lotte,
-Mikkelsen, Susan, Sækmose, Susanne G., Aagaard, Bitten, Holm, Dorte K.,
-Harritshøj, Lene, Simonsen, Lone, Fischer, Thea K., Folke, Fredrik,
-Lippert, Freddy, Ostrowski, Sisse R., Benfield, Thomas, Mølbak, Kåre,
-Ethelberg, Steen, Koch, Anders, Vangsted, Anne-Marie, Krause,
-Tyra Grove, Fomsgaard, Anders, Ullum, Henrik, Skov, Robert</span> *and
-others*. (2023, February). A cross-sectional study of sars-cov-2
-antibodies and risk factors for seropositivity in staff in day care
-facilities and preschools in denmark.  **11**, e0417422.
-
 <span class="smallcaps">Frisch, Morten and Simonsen, Jacob</span>.
 (2013, April). Marriage, cohabitation and mortality in denmark: national
 cohort study of 6.5 million persons followed for up to three decades
@@ -1596,9 +1509,6 @@ transmitted infections: national cohort study in denmark.  **37**,
 Simonsen, Jacob</span>. (2012, April). Questionable evidence of
 increasing incidence of invasive penile cancer in denmark.  **23**,
 659–60; author reply 661–2.
-
-<span class="smallcaps">Frisch, T., Simonsen, L. and Hilden, J.</span>
-(1991, June). .  **153**, 1864–1868.
 
 <span class="smallcaps">Helms, Morten, Simonsen, Jacob and Molbak,
 Kare</span>. (2004, November). Quinolone resistance is associated with
@@ -1652,11 +1562,6 @@ Tyra Grove, Robbins, John B., Schneerson, Rachel, Mølbak, Kåre and
 Miller, Mark A.</span> (2009 *b*, March). Risk of adverse birth outcome
 after group b meningococcal disease: results from a danish national
 cohort.  **28**, 199–203.
-
-<span class="smallcaps">Hvid, Ulrik, Simonsen, Lone, Frisch, Morten and
-Sneppen, Kim</span>. (2025, September). Relationship dynamics and
-behavioral adaptations in the control of the 2022 mpox epidemic.
- **122**, e2502861122.
 
 <span class="smallcaps">Jepsen, Martin Rudbeck, Simonsen, Jacob and
 Ethelberg, Steen</span>. (2009, February). Spatio-temporal cluster
@@ -1735,11 +1640,6 @@ Ethelberg, Steen</span>. (2017, April). Use of proton pump inhibitors
 and the risk of listeriosis: A nationwide registry-based case-control
 study.  **64**, 845–851.
 
-<span class="smallcaps">Lei, U., Wohlfahrt, J., Hjalgrim, H., Hjalgrim,
-L. L., Simonsen, H. and Melbye, M.</span> (2000, November). Neonatal
-level of thyroid-stimulating hormone and acute childhood leukemia.
- **88**, 486–488.
-
 <span class="smallcaps">Linneberg, Allan, Simonsen, Jacob B., Petersen,
 Janne, Stensballe, Lone G. and Benn, Christine S.</span> (2006,
 January). Differential effects of risk factors on infant wheeze and
@@ -1770,7 +1670,7 @@ life events in childhood and risk of infectious disease hospitalization.
 <span class="smallcaps">Nielsen, Nete Munk, Harpsøe, Maria, Simonsen,
 Jacob, Stenager, Egon, Magyari, Melinda, Koch-Henriksen, Nils, Baker,
 Jennifer L., Hjalgrim, Henrik, Frisch, Morten and Bager, Peter</span>.
-(2017, April). Age at menarche and risk of multiple sclerosis: A
+(2017*a*, April). Age at menarche and risk of multiple sclerosis: A
 prospective cohort study based on the danish national birth cohort.
  **185**, 712–719.
 
@@ -1779,6 +1679,13 @@ Jacob, Stenager, Egon, Magyari, Melinda, Koch-Henriksen, Nils, Frisch,
 Morten and Bager, Peter</span>. (2016, October). Self-rated health in
 women prior to clinical onset of multiple sclerosis: A study within the
 danish national birth cohort.  **22**, 1444–1451.
+
+<span class="smallcaps">Nielsen, Nete Munk, Munger, Kassandra L.,
+Koch-Henriksen, Nils, Hougaard, David M., Magyari, Melinda, Jørgensen,
+Kristian T., Lundqvist, Marika, Simonsen, Jacob, Jess, Tine, Cohen,
+Arieh, Stenager, Egon</span> *and others*. (2017*b*, January). Neonatal
+vitamin d status and risk of multiple sclerosis: A population-based
+case-control study.  **88**, 44–51.
 
 <span class="smallcaps">Ranthe, Mattis Flyvholm, Diaz, Lars Jorge,
 Behrens, Ida, Bundgaard, Henning, Simonsen, Jacob, Melbye, Mads and
@@ -1953,18 +1860,6 @@ Serological cross-sectional studies on salmonella incidence in eight
 european countries: no correlation with incidence of reported cases.
 **12,** 523.
 
-Fogh, K., Eriksen, A. R. R., Larsen, T. G., Hasselbalch, R. B.,
-Bundgaard, H., Scharff, B. F. S. S., Nielsen, S. D., Jørgensen, C. S.,
-Erikstrup, C., Østergaard, L., Ellermann-Eriksen, S., Andersen, B.,
-Nielsen, H., Johansen, I. S., Wiese, L., Hindhede, L., Mikkelsen, S.,
-Sækmose, S. G., Aagaard, B., Holm, D. K., Harritshøj, L., Simonsen, L.,
-Fischer, T. K., Folke, F., Lippert, F., Ostrowski, S. R., Benfield, T.,
-Mølbak, K., Ethelberg, S., Koch, A., Vangsted, A.-M., Krause, T. G.,
-Fomsgaard, A., Ullum, H., Skov, R., and Iversen, K. (2023). A
-cross-sectional study of sars-cov-2 antibodies and risk factors for
-seropositivity in staff in day care facilities and preschools in
-denmark. **11,** e0417422.
-
 Frisch, M. and Simonsen, J. (2013). Marriage, cohabitation and mortality
 in denmark: national cohort study of 6.5 million persons followed for up
 to three decades (1982-2011). **42,** 559–578.
@@ -1996,8 +1891,6 @@ other sexually transmitted infections: national cohort study in denmark.
 Frisch, M., Ulff-Møller, C. J., and Simonsen, J. (2012). Questionable
 evidence of increasing incidence of invasive penile cancer in denmark.
 **23,** 659–60; author reply 661–2.
-
-Frisch, T., Simonsen, L., and Hilden, J. (1991). . **153,** 1864–1868.
 
 Helms, M., Simonsen, J., and Molbak, K. (2004). Quinolone resistance is
 associated with increased risk of invasive illness or death during
@@ -2042,10 +1935,6 @@ Howitz, M. F., Simonsen, J., Krause, T. G., Robbins, J. B., Schneerson,
 R., Mølbak, K., and Miller, M. A. (2009). Risk of adverse birth outcome
 after group b meningococcal disease: results from a danish national
 cohort. **28,** 199–203.
-
-Hvid, U., Simonsen, L., Frisch, M., and Sneppen, K. (2025). Relationship
-dynamics and behavioral adaptations in the control of the 2022 mpox
-epidemic. **122,** e2502861122.
 
 Jepsen, M. R., Simonsen, J., and Ethelberg, S. (2009). Spatio-temporal
 cluster analysis of the incidence of campylobacter cases and patients
@@ -2113,10 +2002,6 @@ Kvistholm Jensen, A., Simonsen, J., and Ethelberg, S. (2017). Use of
 proton pump inhibitors and the risk of listeriosis: A nationwide
 registry-based case-control study. **64,** 845–851.
 
-Lei, U., Wohlfahrt, J., Hjalgrim, H., Hjalgrim, L. L., Simonsen, H., and
-Melbye, M. (2000). Neonatal level of thyroid-stimulating hormone and
-acute childhood leukemia. **88,** 486–488.
-
 Linneberg, A., Simonsen, J. B., Petersen, J., Stensballe, L. G., and
 Benn, C. S. (2006). Differential effects of risk factors on infant
 wheeze and atopic dermatitis emphasize a different etiology. **117,**
@@ -2151,6 +2036,12 @@ Nielsen, N. M., Harpsøe, M. C., Simonsen, J., Stenager, E., Magyari, M.,
 Koch-Henriksen, N., Frisch, M., and Bager, P. (2016). Self-rated health
 in women prior to clinical onset of multiple sclerosis: A study within
 the danish national birth cohort. **22,** 1444–1451.
+
+Nielsen, N. M., Munger, K. L., Koch-Henriksen, N., Hougaard, D. M.,
+Magyari, M., Jørgensen, K. T., Lundqvist, M., Simonsen, J., Jess, T.,
+Cohen, A., Stenager, E., and Ascherio, A. (2017). Neonatal vitamin d
+status and risk of multiple sclerosis: A population-based case-control
+study. **88,** 44–51.
 
 Ranthe, M. F., Diaz, L. J., Behrens, I., Bundgaard, H., Simonsen, J.,
 Melbye, M., and Boyd, H. A. (2016). Association between pregnancy losses
@@ -2313,12 +2204,6 @@ Falkenhorst, G., Simonsen, J., Ceper, T. H., van Pelt, W., de Valk, H.,
 incidence in eight European countries: no correlation with incidence of
 reported cases. *BMC public health* **12**, 523.
 
-Fogh, K., Eriksen, A. R. R., Larsen, T. G., Hasselbalch, R. B.,
-Bundgaard, H., *et al.* (2023). A Cross-Sectional Study of SARS-CoV-2
-Antibodies and Risk Factors for Seropositivity in Staff in Day Care
-Facilities and Preschools in Denmark. *Microbiology spectrum* **11**,
-e0417422.
-
 Frisch, M. and Simonsen, J. (2013). Marriage, cohabitation and mortality
 in Denmark: national cohort study of 6.5 million persons followed for up
 to three decades (1982-2011). *International journal of epidemiology*
@@ -2350,9 +2235,6 @@ Frisch, M. and Simonsen, J. (2022b). Non-therapeutic male circumcision
 in infancy or childhood and risk of human immunodeficiency virus and
 other sexually transmitted infections: national cohort study in Denmark.
 *European journal of epidemiology* **37**, 251–259.
-
-Frisch, T., Simonsen, L., and Hilden, J. (1991). . *Ugeskrift for
-laeger* **153**, 1864–1868.
 
 Frisch, M., Ulff-Møller, C. J., and Simonsen, J. (2012). Questionable
 evidence of increasing incidence of invasive penile cancer in Denmark.
@@ -2409,11 +2291,6 @@ Howitz, M. F., Simonsen, J., Krause, T. G., Robbins, J. B., Schneerson,
 R., *et al.* (2009b). Risk of adverse birth outcome after group B
 meningococcal disease: results from a Danish national cohort. *The
 Pediatric infectious disease journal* **28**, 199–203.
-
-Hvid, U., Simonsen, L., Frisch, M., and Sneppen, K. (2025). Relationship
-dynamics and behavioral adaptations in the control of the 2022 mpox
-epidemic. *Proceedings of the National Academy of Sciences of the United
-States of America* **122**, e2502861122.
 
 Jepsen, M. R., Simonsen, J., and Ethelberg, S. (2009). Spatio-temporal
 cluster analysis of the incidence of Campylobacter cases and patients
@@ -2491,10 +2368,6 @@ Registry-based Case-Control Study. *Clinical infectious diseases : an
 official publication of the Infectious Diseases Society of America*
 **64**, 845–851.
 
-Lei, U., Wohlfahrt, J., Hjalgrim, H., Hjalgrim, L. L., Simonsen, H.,
-*et al.* (2000). Neonatal level of thyroid-stimulating hormone and acute
-childhood leukemia. *International journal of cancer* **88**, 486–488.
-
 Linneberg, A., Simonsen, J. B., Petersen, J., Stensballe, L. G., and
 Benn, C. S. (2006). Differential effects of risk factors on infant
 wheeze and atopic dermatitis emphasize a different etiology. *The
@@ -2527,9 +2400,14 @@ multiple sclerosis: A study within the Danish National Birth Cohort.
 1444–1451.
 
 Nielsen, N. M., Harpsøe, M., Simonsen, J., Stenager, E., Magyari, M.,
-*et al.* (2017). Age at Menarche and Risk of Multiple Sclerosis: A
+*et al.* (2017a). Age at Menarche and Risk of Multiple Sclerosis: A
 Prospective Cohort Study Based on the Danish National Birth Cohort.
 *American journal of epidemiology* **185**, 712–719.
+
+Nielsen, N. M., Munger, K. L., Koch-Henriksen, N., Hougaard, D. M.,
+Magyari, M., *et al.* (2017b). Neonatal vitamin D status and risk of
+multiple sclerosis: A population-based case-control study. *Neurology*
+**88**, 44–51.
 
 Ranthe, M. F., Diaz, L. J., Behrens, I., Bundgaard, H., Simonsen, J.,
 *et al.* (2016). Association between pregnancy losses in women and risk
@@ -2634,7 +2512,7 @@ polio booster vaccination in the Danish childhood vaccination database.
 <summary><strong>Journal of Statistical Software</strong></summary>
 
 
-76 urlstyle
+73 urlstyle
 
 Andersohn F, Such P, Jan M, Kalu U, McDonough J, Reinold J, Riedel O,
 Trifirò G, Ientile V, Tari M, Pastorello M, Arana A, Forns J,
@@ -2714,17 +2592,6 @@ cross-sectional studies on salmonella incidence in eight European
 countries: no correlation with incidence of reported cases.” *BMC public
 health*, **12**, 523. ISSN 1471-2458. doi:10.1186/1471-2458-12-523.
 
-Fogh K, Eriksen ARR, Larsen TG, Hasselbalch RB, Bundgaard H, Scharff
-BFSS, Nielsen SD, Jørgensen CS, Erikstrup C, Østergaard L,
-Ellermann-Eriksen S, Andersen B, Nielsen H, Johansen IS, Wiese L,
-Hindhede L, Mikkelsen S, Sækmose SG, Aagaard B, Holm DK, Harritshøj L,
-Simonsen L, Fischer TK, Folke F, Lippert F, Ostrowski SR, Benfield T,
-Mølbak K, Ethelberg S, Koch A, Vangsted AM, Krause TG, Fomsgaard A,
-Ullum H, Skov R, Iversen K (2023). “A Cross-Sectional Study of
-SARS-CoV-2 Antibodies and Risk Factors for Seropositivity in Staff in
-Day Care Facilities and Preschools in Denmark.” *Microbiology spectrum*,
-**11**, e0417422. ISSN 2165-0497. doi:10.1128/spectrum.04174-22.
-
 Frisch M, Simonsen J (2013). “Marriage, cohabitation and mortality in
 Denmark: national cohort study of 6.5 million persons followed for up to
 three decades (1982-2011).” *International journal of epidemiology*,
@@ -2766,10 +2633,6 @@ Frisch M, Ulff-Møller CJ, Simonsen J (2012). “Questionable evidence of
 increasing incidence of invasive penile cancer in Denmark.” *Cancer
 causes & control : CCC*, **23**, 659–60; author reply 661–2. ISSN
 1573-7225. doi:10.1007/s10552-012-9933-x.
-
-Frisch T, Simonsen L, Hilden J (1991). “\[Observer variation and
-accuracy in the clinical diagnosis of ascites\].” *Ugeskrift for
-laeger*, **153**, 1864–1868. ISSN 0041-5782.
 
 Helms M, Simonsen J, Molbak K (2004). “Quinolone resistance is
 associated with increased risk of invasive illness or death during
@@ -2828,12 +2691,6 @@ Miller MA (2009b). “Risk of adverse birth outcome after group B
 meningococcal disease: results from a Danish national cohort.” *The
 Pediatric infectious disease journal*, **28**, 199–203. ISSN 0891-3668.
 doi:10.1097/INF.0b013e31818c9049.
-
-Hvid U, Simonsen L, Frisch M, Sneppen K (2025). “Relationship dynamics
-and behavioral adaptations in the control of the 2022 mpox epidemic.”
-*Proceedings of the National Academy of Sciences of the United States of
-America*, **122**, e2502861122. ISSN 1091-6490.
-doi:10.1073/pnas.2502861122.
 
 Jepsen MR, Simonsen J, Ethelberg S (2009). “Spatio-temporal cluster
 analysis of the incidence of Campylobacter cases and patients with
@@ -2917,11 +2774,6 @@ Case-Control Study.” *Clinical infectious diseases : an official
 publication of the Infectious Diseases Society of America*, **64**,
 845–851. ISSN 1537-6591. doi:10.1093/cid/ciw860.
 
-Lei U, Wohlfahrt J, Hjalgrim H, Hjalgrim LL, Simonsen H, Melbye M
-(2000). “Neonatal level of thyroid-stimulating hormone and acute
-childhood leukemia.” *International journal of cancer*, **88**, 486–488.
-ISSN 0020-7136.
-
 Linneberg A, Simonsen JB, Petersen J, Stensballe LG, Benn CS (2006).
 “Differential effects of risk factors on infant wheeze and atopic
 dermatitis emphasize a different etiology.” *The Journal of allergy and
@@ -2952,7 +2804,7 @@ events in childhood and risk of infectious disease hospitalization.”
 doi:10.1007/s00431-011-1498-2.
 
 Nielsen NM, Harpsøe M, Simonsen J, Stenager E, Magyari M, Koch-Henriksen
-N, Baker JL, Hjalgrim H, Frisch M, Bager P (2017). “Age at Menarche and
+N, Baker JL, Hjalgrim H, Frisch M, Bager P (2017a). “Age at Menarche and
 Risk of Multiple Sclerosis: A Prospective Cohort Study Based on the
 Danish National Birth Cohort.” *American journal of epidemiology*,
 **185**, 712–719. ISSN 1476-6256. doi:10.1093/aje/kww160.
@@ -2963,6 +2815,12 @@ prior to clinical onset of multiple sclerosis: A study within the Danish
 National Birth Cohort.” *Multiple sclerosis (Houndmills, Basingstoke,
 England)*, **22**, 1444–1451. ISSN 1477-0970.
 doi:10.1177/1352458515621623.
+
+Nielsen NM, Munger KL, Koch-Henriksen N, Hougaard DM, Magyari M,
+Jørgensen KT, Lundqvist M, Simonsen J, Jess T, Cohen A, Stenager E,
+Ascherio A (2017b). “Neonatal vitamin D status and risk of multiple
+sclerosis: A population-based case-control study.” *Neurology*, **88**,
+44–51. ISSN 1526-632X. doi:10.1212/WNL.0000000000003454.
 
 Ranthe MF, Diaz LJ, Behrens I, Bundgaard H, Simonsen J, Melbye M, Boyd
 HA (2016). “Association between pregnancy losses in women and risk of
@@ -3147,12 +3005,6 @@ vaccination in the Danish childhood vaccination database.” *Vaccine*,
 
 <div class="barticle">
 
-, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ().
-.
-
-
-<div class="barticle">
-
 (). .
 
 
@@ -3184,11 +3036,6 @@ vaccination in the Danish childhood vaccination database.” *Vaccine*,
 <div class="barticle">
 
 (). .
-
-
-<div class="barticle">
-
-, (). .
 
 
 <div class="barticle">
@@ -3248,11 +3095,6 @@ vaccination in the Danish childhood vaccination database.” *Vaccine*,
 
 <div class="barticle">
 
-, , (). .
-
-
-<div class="barticle">
-
 , (). .
 
 
@@ -3324,11 +3166,6 @@ vaccination in the Danish childhood vaccination database.” *Vaccine*,
 <div class="barticle">
 
 , (). .
-
-
-<div class="barticle">
-
-, , , , (). .
 
 
 <div class="barticle">
@@ -3364,6 +3201,11 @@ vaccination in the Danish childhood vaccination database.” *Vaccine*,
 <div class="barticle">
 
 , , , , , , (). .
+
+
+<div class="barticle">
+
+, , , , , , , , , , (). .
 
 
 <div class="barticle">
