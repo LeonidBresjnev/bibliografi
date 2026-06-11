@@ -4,29 +4,16 @@ on:
   push:
     paths:
       - "**/*.bib"
-      - "index.html"
-      - "package.json"
-      - "package-lock.json"
-      - "public/**"
-      - "src/**"
+      - "bibliography-styles.tsv"
       - ".github/workflows/update-bibliography.yml"
   workflow_dispatch:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: github-pages
-  cancel-in-progress: false
 
 jobs:
   update-bibliography:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -50,16 +37,7 @@ jobs:
           trap 'rm -rf "${WORKDIR}"' EXIT
           cp "${BIB_FILE}" "${WORKDIR}/references.bib"
 
-          cat > "${WORKDIR}/styles.tsv" <<'EOF'
-          epidemiology	Epidemiology	https://raw.githubusercontent.com/louisahsmith/louisahstuff/75ee938ce59551999e17145580de2aec33add646/inst/rmarkdown/resources/epi-custom.bst
-          statmed	Statistics in Medicine	https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/stats-in-med/statmed.bst
-          biometrika	Biometrika	https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/biometrika/biometrika.bst
-          biorefs	Biostatistics (Oxford)	https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/biostatistics/biorefs.bst
-          biom	Biometrics	https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/biometrics/biom.bst
-          biometrical	Biometrical Journal	https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/biometrical-journal/biometrical.bst
-          jss	Journal of Statistical Software	https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/jss/jss.bst
-          imsart-number	IMS Journals (AOS/AAP/AOP/AOAS)	https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/ims/imsart-number.bst
-          EOF
+          cp bibliography-styles.tsv "${WORKDIR}/styles.tsv"
           sed -i -e 's/^[[:space:]]*//' -e '/^$/d' "${WORKDIR}/styles.tsv"
 
           while IFS=$'\t' read -r style_id style_label style_url; do
@@ -190,27 +168,3 @@ jobs:
           git add README.md
           git commit -m "Update bibliography in README"
           git push
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - name: Install npm dependencies
-        run: npm ci
-
-      - name: Build site
-        run: npm run build
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4

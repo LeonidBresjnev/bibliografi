@@ -1,0 +1,152 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.bib"
+      - "bibliography-styles.tsv"
+      - "index.html"
+      - "package.json"
+      - "package-lock.json"
+      - "public/**"
+      - "src/**"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy-pages:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install BibTeX toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-latex-base pandoc
+
+      - name: Generate bibliography data with BibTeX
+        run: |
+          set -euo pipefail
+
+          BIB_FILE="$(git ls-files '*.bib' | head -n 1)"
+          if [ -z "${BIB_FILE}" ]; then
+            echo "No .bib file found in repository."
+            exit 1
+          fi
+
+          WORKDIR="$(mktemp -d)"
+          trap 'rm -rf "${WORKDIR}"' EXIT
+          cp "${BIB_FILE}" "${WORKDIR}/references.bib"
+
+          cp bibliography-styles.tsv "${WORKDIR}/styles.tsv"
+          sed -i -e 's/^[[:space:]]*//' -e '/^$/d' "${WORKDIR}/styles.tsv"
+
+          while IFS=$'\t' read -r style_id style_label style_url; do
+            curl -fsSL "${style_url}" -o "${WORKDIR}/${style_id}.bst"
+          done < "${WORKDIR}/styles.tsv"
+
+          generate_style() {
+            local style_id="$1"
+
+            {
+              echo '\documentclass{article}'
+              echo '\begin{document}'
+              echo '\nocite{*}'
+              echo "\\bibliographystyle{${style_id}}"
+              echo '\bibliography{references}'
+              echo '\end{document}'
+            } > "${WORKDIR}/${style_id}.tex"
+
+            pushd "${WORKDIR}" >/dev/null
+            latex -interaction=nonstopmode "${style_id}.tex" >/dev/null
+            bibtex "${style_id}" >/dev/null
+            popd >/dev/null
+
+            pandoc --from=latex --to=gfm "${WORKDIR}/${style_id}.bbl" -o "${WORKDIR}/${style_id}.md"
+            sed -i \
+              -e '/^<div class="thebibliography">$/d' \
+              -e '/^<\/div>$/d' \
+              -e '/^[0-9][0-9]*$/d' \
+              "${WORKDIR}/${style_id}.md"
+            pandoc --from=gfm --to=html "${WORKDIR}/${style_id}.md" -o "${WORKDIR}/${style_id}.html"
+          }
+
+          while IFS=$'\t' read -r style_id style_label style_url; do
+            generate_style "${style_id}"
+          done < "${WORKDIR}/styles.tsv"
+
+          mkdir -p public
+          WORKDIR="${WORKDIR}" BIB_FILE="${BIB_FILE}" python3 - <<'PY'
+          import csv
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          workdir = Path(os.environ["WORKDIR"])
+          bib_file = os.environ["BIB_FILE"]
+          styles = []
+
+          with (workdir / "styles.tsv").open(encoding="utf-8", newline="") as style_file:
+            for style_id, style_label, _style_url in csv.reader(style_file, delimiter="\t"):
+              markdown = (workdir / f"{style_id}.md").read_text(encoding="utf-8").strip()
+              html = (workdir / f"{style_id}.html").read_text(encoding="utf-8").strip()
+              entry_count = len([block for block in re.split(r"\n\s*\n", markdown) if block.strip()])
+              styles.append({
+                "id": style_id,
+                "anchor": f"bibliography-style-{style_id}",
+                "label": style_label,
+                "entryCount": entry_count,
+                "html": html,
+              })
+
+          data = {
+            "source": bib_file,
+            "styles": styles,
+          }
+
+          Path("public").mkdir(exist_ok=True)
+          Path("public/bibliography.json").write_text(
+            json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+          )
+          PY
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
