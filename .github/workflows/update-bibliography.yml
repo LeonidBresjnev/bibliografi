@@ -36,15 +36,21 @@ jobs:
           trap 'rm -rf "${WORKDIR}"' EXIT
           cp "${BIB_FILE}" "${WORKDIR}/references.bib"
 
-          curl -fsSL \
-            "https://raw.githubusercontent.com/louisahsmith/louisahstuff/75ee938ce59551999e17145580de2aec33add646/inst/rmarkdown/resources/epi-custom.bst" \
-            -o "${WORKDIR}/epidemiology.bst"
-          curl -fsSL \
-            "https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/stats-in-med/statmed.bst" \
-            -o "${WORKDIR}/statmed.bst"
-          curl -fsSL \
-            "https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/biometrika/biometrika.bst" \
-            -o "${WORKDIR}/biometrika.bst"
+          cat > "${WORKDIR}/styles.tsv" <<'EOF'
+          epidemiology	Epidemiology	https://raw.githubusercontent.com/louisahsmith/louisahstuff/75ee938ce59551999e17145580de2aec33add646/inst/rmarkdown/resources/epi-custom.bst
+          statmed	Statistics in Medicine	https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/stats-in-med/statmed.bst
+          biometrika	Biometrika	https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/biometrika/biometrika.bst
+          biorefs	Biostatistics (Oxford)	https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/biostatistics/biorefs.bst
+          biom	Biometrics	https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/biometrics/biom.bst
+          biometrical	Biometrical Journal	https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/biometrical-journal/biometrical.bst
+          jss	Journal of Statistical Software	https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/jss/jss.bst
+          imsart-number	IMS Journals (AOS/AAP/AOP/AOAS)	https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/ims/imsart-number.bst
+          EOF
+          sed -i -e 's/^[[:space:]]*//' -e '/^$/d' "${WORKDIR}/styles.tsv"
+
+          while IFS=$'\t' read -r style_id style_label style_url; do
+            curl -fsSL "${style_url}" -o "${WORKDIR}/${style_id}.bst"
+          done < "${WORKDIR}/styles.tsv"
 
           generate_style() {
             local style_id="$1"
@@ -64,14 +70,20 @@ jobs:
             popd >/dev/null
 
             pandoc --from=latex --to=gfm "${WORKDIR}/${style_id}.bbl" -o "${WORKDIR}/${style_id}.md"
+            sed -i \
+              -e '/^<div class="thebibliography">$/d' \
+              -e '/^<\/div>$/d' \
+              -e '/^[0-9][0-9]*$/d' \
+              "${WORKDIR}/${style_id}.md"
           }
 
           render_style() {
             local style_id="$1"
             local label="$2"
-            local open_attr="${3:-}"
+            local anchor_id="$3"
+            local open_attr="${4:-}"
 
-            echo "<details${open_attr}>"
+            echo "<details${open_attr} id=\"${anchor_id}\">"
             echo "<summary><strong>${label}</strong></summary>"
             echo
             cat "${WORKDIR}/${style_id}.md"
@@ -80,9 +92,30 @@ jobs:
             echo
           }
 
-          generate_style epidemiology
-          generate_style statmed
-          generate_style biometrika
+          while IFS=$'\t' read -r style_id style_label style_url; do
+            generate_style "${style_id}"
+          done < "${WORKDIR}/styles.tsv"
+
+          : > "${WORKDIR}/style-radio-chooser.md"
+          : > "${WORKDIR}/style-sections.md"
+          is_first=1
+          while IFS=$'\t' read -r style_id style_label style_url; do
+            anchor_id="bibliography-style-${style_id}"
+            checked_attr=""
+            open_attr=""
+            if [ "${is_first}" -eq 1 ]; then
+              checked_attr=" checked"
+              open_attr=" open"
+              is_first=0
+            fi
+
+            printf '<input type="radio" name="bibliography-style" id="%s"%s /> <label for="%s"><a href="#%s">%s</a></label><br/>\n' \
+              "${anchor_id}" "${checked_attr}" "${anchor_id}" "${anchor_id}" "${style_label}" \
+              >> "${WORKDIR}/style-radio-chooser.md"
+
+            render_style "${style_id}" "${style_label}" "${anchor_id}" "${open_attr}" \
+              >> "${WORKDIR}/style-sections.md"
+          done < "${WORKDIR}/styles.tsv"
 
           {
             echo "<!-- bibliography:start -->"
@@ -90,9 +123,9 @@ jobs:
             echo
             echo "Choose a journal style:"
             echo
-            render_style epidemiology "Epidemiology" " open"
-            render_style statmed "Statistics in Medicine"
-            render_style biometrika "Biometrika"
+            cat "${WORKDIR}/style-radio-chooser.md"
+            echo
+            cat "${WORKDIR}/style-sections.md"
             echo "<!-- bibliography:end -->"
           } > "${WORKDIR}/bibliography-section.md"
 
