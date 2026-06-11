@@ -1,0 +1,111 @@
+name: Update bibliography
+
+on:
+  push:
+    paths:
+      - "**/*.bib"
+      - ".github/workflows/update-bibliography.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-bibliography:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install BibTeX toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-latex-base pandoc
+
+      - name: Generate bibliography section in README with BibTeX
+        run: |
+          set -euo pipefail
+
+          BIB_FILE="$(git ls-files '*.bib' | head -n 1)"
+          if [ -z "${BIB_FILE}" ]; then
+            echo "No .bib file found in repository."
+            exit 1
+          fi
+
+          WORKDIR="$(mktemp -d)"
+          cp "${BIB_FILE}" "${WORKDIR}/references.bib"
+
+          cat > "${WORKDIR}/references.tex" <<'EOF'
+          \documentclass{article}
+          \begin{document}
+          \nocite{*}
+          \bibliographystyle{plain}
+          \bibliography{references}
+          \end{document}
+          EOF
+
+          pushd "${WORKDIR}" >/dev/null
+          latex -interaction=nonstopmode references.tex >/dev/null
+          bibtex references >/dev/null
+          popd >/dev/null
+
+          pandoc --from=latex --to=gfm "${WORKDIR}/references.bbl" -o "${WORKDIR}/bibliography.md"
+
+          {
+            echo "<!-- bibliography:start -->"
+            echo "_Generated with BibTeX from \`${BIB_FILE}\`._"
+            echo
+            cat "${WORKDIR}/bibliography.md"
+            echo
+            echo "<!-- bibliography:end -->"
+          } > "${WORKDIR}/bibliography-section.md"
+
+          if [ -f README.md ]; then
+            if grep -q "<!-- bibliography:start -->" README.md && grep -q "<!-- bibliography:end -->" README.md; then
+              awk '
+                BEGIN { inside = 0 }
+                /<!-- bibliography:start -->/ {
+                  inside = 1
+                  while ((getline line < section) > 0) print line
+                  close(section)
+                  next
+                }
+                /<!-- bibliography:end -->/ {
+                  inside = 0
+                  next
+                }
+                !inside { print }
+              ' section="${WORKDIR}/bibliography-section.md" README.md > "${WORKDIR}/README.md"
+            else
+              cp README.md "${WORKDIR}/README.md"
+              {
+                echo
+                echo "## Publications"
+                echo
+                cat "${WORKDIR}/bibliography-section.md"
+              } >> "${WORKDIR}/README.md"
+            fi
+          else
+            {
+              echo "# Bibliography"
+              echo
+              echo "## Publications"
+              echo
+              cat "${WORKDIR}/bibliography-section.md"
+            } > "${WORKDIR}/README.md"
+          fi
+
+          mv "${WORKDIR}/README.md" README.md
+          rm -rf "${WORKDIR}"
+
+      - name: Commit README changes
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Update bibliography in README"
+          git push
