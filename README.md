@@ -5,6 +5,11 @@
 <!-- bibliography:start -->
 _Generated with BibTeX from `mine_artikler.bib`._
 
+Choose a journal style:
+
+<details open>
+<summary><strong>Epidemiology</strong></summary>
+
 - Koningstein, M., Simonsen, J., Helms, M., et al. (2011). **Antimicrobial use: a risk factor or a protective factor for acquiring campylobacteriosis?**. *Clin Infect Dis*, 53(7), 644-650.
 - Bager, P., Simonsen, J., Nielsen, N., and Frisch, M. (2011). **Cesarean section and offspring's risk of inflammatory bowel disease: A national cohort study**. *Inflamm Bowel Dis*.
 - Søes, L., Brock, I., Persson, S., et al. (2011). **Clinical features of Clostridium difficile infection and molecular characterization of the isolated strains in a cohort of Danish hospitalized patients**. *Eur J Clin Microbiol Infect Dis*.
@@ -39,4 +44,20 @@ _Generated with BibTeX from `mine_artikler.bib`._
 - Helms, M., Simonsen, J., Olsen, K., and Mølbak, K. (2005). **Adverse health events associated with antimicrobial drug resistance in Campylobacter species: a registry-based cohort study**. *J Infect Dis*, 191(7), 1050-1055.
 - Ethelberg, S., Simonsen, J., Gerner-Smidt, P., et al. (2005). **Spatial distribution and registry-based case-control analysis of Campylobacter infections in Denmark, 1991-2001**. *Am J Epidemiol*, 162(10), 1008-1015.
 - Helms, M., Simonsen, J., and Molbak, K. (2004). **Quinolone resistance is associated with increased risk of invasive illness or death during infection with Salmonella serotype Typhimurium**. *J Infect Dis*, 190(9), 1652-1654.
+
+</details>
+
+<details>
+<summary><strong>Statistics in Medicine</strong></summary>
+
+_Generated automatically by the workflow._
+
+</details>
+
+<details>
+<summary><strong>Biometrika</strong></summary>
+
+_Generated automatically by the workflow._
+
+</details>
 <!-- bibliography:end -->

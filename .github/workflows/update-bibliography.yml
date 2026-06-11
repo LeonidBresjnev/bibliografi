@@ -22,7 +22,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends texlive-latex-base pandoc
 
-      - name: Generate bibliography section in README with BibTeX
+      - name: Generate bibliography sections in README with BibTeX
         run: |
           set -euo pipefail
 
@@ -33,30 +33,66 @@ jobs:
           fi
 
           WORKDIR="$(mktemp -d)"
+          trap 'rm -rf "${WORKDIR}"' EXIT
           cp "${BIB_FILE}" "${WORKDIR}/references.bib"
 
-          cat > "${WORKDIR}/references.tex" <<'EOF'
-          \documentclass{article}
-          \begin{document}
-          \nocite{*}
-          \bibliographystyle{plain}
-          \bibliography{references}
-          \end{document}
-          EOF
+          curl -fsSL \
+            "https://raw.githubusercontent.com/louisahsmith/louisahstuff/75ee938ce59551999e17145580de2aec33add646/inst/rmarkdown/resources/epi-custom.bst" \
+            -o "${WORKDIR}/epidemiology.bst"
+          curl -fsSL \
+            "https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/stats-in-med/statmed.bst" \
+            -o "${WORKDIR}/statmed.bst"
+          curl -fsSL \
+            "https://raw.githubusercontent.com/sachsmc/pandoc-journal-templates/c63a6845dc21dc422ccbea7cb86a54d875ca8a5a/biometrika/biometrika.bst" \
+            -o "${WORKDIR}/biometrika.bst"
 
-          pushd "${WORKDIR}" >/dev/null
-          latex -interaction=nonstopmode references.tex >/dev/null
-          bibtex references >/dev/null
-          popd >/dev/null
+          generate_style() {
+            local style_id="$1"
 
-          pandoc --from=latex --to=gfm "${WORKDIR}/references.bbl" -o "${WORKDIR}/bibliography.md"
+            {
+              echo '\documentclass{article}'
+              echo '\begin{document}'
+              echo '\nocite{*}'
+              echo "\\bibliographystyle{${style_id}}"
+              echo '\bibliography{references}'
+              echo '\end{document}'
+            } > "${WORKDIR}/${style_id}.tex"
+
+            pushd "${WORKDIR}" >/dev/null
+            latex -interaction=nonstopmode "${style_id}.tex" >/dev/null
+            bibtex "${style_id}" >/dev/null
+            popd >/dev/null
+
+            pandoc --from=latex --to=gfm "${WORKDIR}/${style_id}.bbl" -o "${WORKDIR}/${style_id}.md"
+          }
+
+          render_style() {
+            local style_id="$1"
+            local label="$2"
+            local open_attr="${3:-}"
+
+            echo "<details${open_attr}>"
+            echo "<summary><strong>${label}</strong></summary>"
+            echo
+            cat "${WORKDIR}/${style_id}.md"
+            echo
+            echo "</details>"
+            echo
+          }
+
+          generate_style epidemiology
+          generate_style statmed
+          generate_style biometrika
 
           {
             echo "<!-- bibliography:start -->"
             echo "_Generated with BibTeX from \`${BIB_FILE}\`._"
             echo
-            cat "${WORKDIR}/bibliography.md"
+            echo "Choose a journal style:"
             echo
+            render_style epidemiology "Epidemiology" " open"
+            render_style statmed "Statistics in Medicine"
+            render_style biometrika "Biometrika"
             echo "<!-- bibliography:end -->"
           } > "${WORKDIR}/bibliography-section.md"
 
@@ -94,9 +130,7 @@ jobs:
               cat "${WORKDIR}/bibliography-section.md"
             } > "${WORKDIR}/README.md"
           fi
-
           mv "${WORKDIR}/README.md" README.md
-          rm -rf "${WORKDIR}"
 
       - name: Commit README changes
         run: |
