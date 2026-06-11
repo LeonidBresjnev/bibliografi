@@ -10,6 +10,7 @@ on:
       - "index.html"
       - "package.json"
       - "package-lock.json"
+      - "vite.config.js"
       - "public/**"
       - "src/**"
       - ".github/workflows/deploy-pages.yml"
