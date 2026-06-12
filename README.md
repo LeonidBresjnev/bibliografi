@@ -5,18 +5,9 @@
 <!-- bibliography:start -->
 _Generated with BibTeX from `mine_artikler.bib`._
 
-Choose a journal style:
+Open a journal style below to view that bibliography.
 
-<input type="radio" name="bibliography-style" id="bibliography-style-epidemiology" checked /> <label for="bibliography-style-epidemiology"><a href="#bibliography-style-epidemiology">Epidemiology</a></label><br/>
-<input type="radio" name="bibliography-style" id="bibliography-style-statmed" /> <label for="bibliography-style-statmed"><a href="#bibliography-style-statmed">Statistics in Medicine</a></label><br/>
-<input type="radio" name="bibliography-style" id="bibliography-style-biometrika" /> <label for="bibliography-style-biometrika"><a href="#bibliography-style-biometrika">Biometrika</a></label><br/>
-<input type="radio" name="bibliography-style" id="bibliography-style-biorefs" /> <label for="bibliography-style-biorefs"><a href="#bibliography-style-biorefs">Biostatistics (Oxford)</a></label><br/>
-<input type="radio" name="bibliography-style" id="bibliography-style-biom" /> <label for="bibliography-style-biom"><a href="#bibliography-style-biom">Biometrics</a></label><br/>
-<input type="radio" name="bibliography-style" id="bibliography-style-biometrical" /> <label for="bibliography-style-biometrical"><a href="#bibliography-style-biometrical">Biometrical Journal</a></label><br/>
-<input type="radio" name="bibliography-style" id="bibliography-style-jss" /> <label for="bibliography-style-jss"><a href="#bibliography-style-jss">Journal of Statistical Software</a></label><br/>
-<input type="radio" name="bibliography-style" id="bibliography-style-imsart-number" /> <label for="bibliography-style-imsart-number"><a href="#bibliography-style-imsart-number">IMS Journals (AOS/AAP/AOP/AOAS)</a></label><br/>
-
-<details open id="bibliography-style-epidemiology">
+<details open name="bibliography-style" id="bibliography-style-epidemiology">
 <summary><strong>Epidemiology</strong></summary>
 
 
@@ -379,7 +370,7 @@ Danish childhood vaccination database. *Vaccine*, 2013;31:955–959.
 
 </details>
 
-<details id="bibliography-style-statmed">
+<details name="bibliography-style" id="bibliography-style-statmed">
 <summary><strong>Statistics in Medicine</strong></summary>
 
 
@@ -756,7 +747,7 @@ general population in denmark. *Epidemiology and infection*
 
 </details>
 
-<details id="bibliography-style-biometrika">
+<details name="bibliography-style" id="bibliography-style-biometrika">
 <summary><strong>Biometrika</strong></summary>
 
 
@@ -1491,7 +1482,7 @@ vaccination in the danish childhood vaccination database. *Vaccine*
 
 </details>
 
-<details id="bibliography-style-biorefs">
+<details name="bibliography-style" id="bibliography-style-biorefs">
 <summary><strong>Biostatistics (Oxford)</strong></summary>
 
 
@@ -1922,7 +1913,7 @@ in the danish childhood vaccination database.  **31**, 955–959.
 
 </details>
 
-<details id="bibliography-style-biom">
+<details name="bibliography-style" id="bibliography-style-biom">
 <summary><strong>Biometrics</strong></summary>
 
 
@@ -2287,7 +2278,7 @@ polio booster vaccination in the danish childhood vaccination database.
 
 </details>
 
-<details id="bibliography-style-biometrical">
+<details name="bibliography-style" id="bibliography-style-biometrical">
 <summary><strong>Biometrical Journal</strong></summary>
 
 
@@ -2688,7 +2679,7 @@ polio booster vaccination in the Danish childhood vaccination database.
 
 </details>
 
-<details id="bibliography-style-jss">
+<details name="bibliography-style" id="bibliography-style-jss">
 <summary><strong>Journal of Statistical Software</strong></summary>
 
 
@@ -3139,404 +3130,6 @@ Wójcik OP, Simonsen J, Mølbak K, Valentiner-Branth P (2013). “Validation
 of the 5-year tetanus, diphtheria, pertussis and polio booster
 vaccination in the Danish childhood vaccination database.” *Vaccine*,
 **31**, 955–959. ISSN 1873-2518. doi:10.1016/j.vaccine.2012.11.100.
-
-
-</details>
-
-<details id="bibliography-style-imsart-number">
-<summary><strong>IMS Journals (AOS/AAP/AOP/AOAS)</strong></summary>
-
-
-
-<div class="barticle">
-
-, , , , , , , , , , , , , , , , (). .
-
-
-<div class="barticle">
-
-, , (). .
-
-
-<div class="barticle">
-
-, , (). .
-
-
-<div class="barticle">
-
-, , , , , , , , (). .
-
-
-<div class="barticle">
-
-, , , , , , , (). .
-
-
-<div class="barticle">
-
-, , , , , , (). .
-
-
-<div class="barticle">
-
-, , , , , , , , , , , (). .
-
-
-<div class="barticle">
-
-, , , , (). .
-
-
-<div class="barticle">
-
-, , , (). .
-
-
-<div class="barticle">
-
-, , , (). .
-
-
-<div class="barticle">
-
-, , , , , (). .
-
-
-<div class="barticle">
-
-, , , , , (). .
-
-
-<div class="barticle">
-
-, , , , (). .
-
-
-<div class="barticle">
-
-, , , (). .
-
-
-<div class="barticle">
-
-, , , , , , , , , , , , (). .
-
-
-<div class="barticle">
-
-(). .
-
-
-<div class="barticle">
-
-(). .
-
-
-<div class="barticle">
-
-(). .
-
-
-<div class="barticle">
-
-(). .
-
-
-<div class="barticle">
-
-(). .
-
-
-<div class="barticle">
-
-(). .
-
-
-<div class="barticle">
-
-(). .
-
-
-<div class="barticle">
-
-, (). .
-
-
-<div class="barticle">
-
-, (). .
-
-
-<div class="barticle">
-
-, (). .
-
-
-<div class="barticle">
-
-, , (). .
-
-
-<div class="barticle">
-
-, (). .
-
-
-<div class="barticle">
-
-, , , , , (). .
-
-
-<div class="barticle">
-
-, , , (). .
-
-
-<div class="barticle">
-
-, , , , , , (). .
-
-
-<div class="barticle">
-
-, , , , , , , , (). .
-
-
-<div class="barticle">
-
-, , , (). .
-
-
-<div class="barticle">
-
-, , , , , (). .
-
-
-<div class="barticle">
-
-, (). .
-
-
-<div class="barticle">
-
-, (). .
-
-
-<div class="barticle">
-
-, , , , (). .
-
-
-<div class="barticle">
-
-, , , , , (). .
-
-
-<div class="barticle">
-
-, , , , (). .
-
-
-<div class="barticle">
-
-, , (). .
-
-
-<div class="barticle">
-
-, , , (). .
-
-
-<div class="barticle">
-
-, , (). .
-
-
-<div class="barticle">
-
-, , , (). .
-
-
-<div class="barticle">
-
-, , , (). .
-
-
-<div class="barticle">
-
-, , , , , (). .
-
-
-<div class="barticle">
-
-, , , , (). .
-
-
-<div class="barticle">
-
-, , , (). .
-
-
-<div class="barticle">
-
-, , (). .
-
-
-<div class="barticle">
-
-, (). .
-
-
-<div class="barticle">
-
-, , , (). .
-
-
-<div class="barticle">
-
-, , , , , , (). .
-
-
-<div class="barticle">
-
-, , , , , , (). .
-
-
-<div class="barticle">
-
-, , (). .
-
-
-<div class="barticle">
-
-, , (). .
-
-
-<div class="barticle">
-
-, , , , , , , , (). .
-
-
-<div class="barticle">
-
-, , , , , , (). .
-
-
-<div class="barticle">
-
-, , , , , , , , , , (). .
-
-
-<div class="barticle">
-
-, , , , , (). .
-
-
-<div class="barticle">
-
-, , , , (). .
-
-
-<div class="barticle">
-
-, , , (). .
-
-
-<div class="barticle">
-
-, , , (). .
-
-
-<div class="barticle">
-
-, , , , , (). .
-
-
-<div class="barticle">
-
-, , , , (). .
-
-
-<div class="barticle">
-
-, (). .
-
-
-<div class="barticle">
-
-, , , , (). .
-
-
-<div class="barticle">
-
-, , , , (). .
-
-
-<div class="barticle">
-
-, , , , , (). .
-
-
-<div class="barticle">
-
-, , , , (). .
-
-
-<div class="barticle">
-
-, , , (). .
-
-
-<div class="barticle">
-
-, , , , , , , , (). .
-
-
-<div class="barticle">
-
-, , , , (). . .
-
-
-<div class="barticle">
-
-, , , , , , , , , , , (). .
-
-
-<div class="barticle">
-
-, , , , , (). .
-
-
-<div class="barticle">
-
-, (). .
-
-
-<div class="barticle">
-
-, , , (). .
-
-
-<div class="barticle">
-
-, , (). .
-
-
-<div class="barticle">
-
-, (). .
-
-
-<div class="barticle">
-
-, , (). .
-
-
-<div class="barticle">
-
-, , (). .
-
 
 
 </details>
