@@ -20,7 +20,6 @@ body {
     #f7f6f1;
 }
 
-button,
 select {
   font: inherit;
 }
@@ -121,37 +120,6 @@ code {
   padding: 0 38px 0 12px;
   background: #ffffff;
   color: #17211d;
-}
-
-.style-tabs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 8px;
-}
-
-.style-button {
-  min-height: 46px;
-  border: 1px solid #cfc8b7;
-  border-radius: 6px;
-  padding: 10px 12px;
-  background: #fbfaf7;
-  color: #24332d;
-  cursor: pointer;
-  text-align: left;
-}
-
-.style-button:hover,
-.style-button:focus-visible {
-  border-color: #217466;
-  outline: 2px solid rgba(33, 116, 102, 0.18);
-  outline-offset: 2px;
-}
-
-.style-button.is-selected {
-  border-color: #217466;
-  background: #e8f0ea;
-  color: #0f473f;
-  font-weight: 760;
 }
 
 .bibliography-section {
@@ -256,10 +224,6 @@ code {
 
   .style-select-label {
     min-width: 0;
-  }
-
-  .style-tabs {
-    grid-template-columns: 1fr;
   }
 
   .bibliography-body p {

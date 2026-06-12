@@ -75,7 +75,7 @@ jobs:
             local anchor_id="$3"
             local open_attr="${4:-}"
 
-            echo "<details${open_attr} id=\"${anchor_id}\">"
+            echo "<details${open_attr} name=\"bibliography-style\" id=\"${anchor_id}\">"
             echo "<summary><strong>${label}</strong></summary>"
             echo
             cat "${WORKDIR}/${style_id}.md"
@@ -88,22 +88,15 @@ jobs:
             generate_style "${style_id}"
           done < "${WORKDIR}/styles.tsv"
 
-          : > "${WORKDIR}/style-radio-chooser.md"
           : > "${WORKDIR}/style-sections.md"
           is_first=1
           while IFS=$'\t' read -r style_id style_label style_url; do
             anchor_id="bibliography-style-${style_id}"
-            checked_attr=""
             open_attr=""
             if [ "${is_first}" -eq 1 ]; then
-              checked_attr=" checked"
               open_attr=" open"
               is_first=0
             fi
-
-            printf '<input type="radio" name="bibliography-style" id="%s"%s /> <label for="%s"><a href="#%s">%s</a></label><br/>\n' \
-              "${anchor_id}" "${checked_attr}" "${anchor_id}" "${anchor_id}" "${style_label}" \
-              >> "${WORKDIR}/style-radio-chooser.md"
 
             render_style "${style_id}" "${style_label}" "${anchor_id}" "${open_attr}" \
               >> "${WORKDIR}/style-sections.md"
@@ -113,9 +106,7 @@ jobs:
             echo "<!-- bibliography:start -->"
             echo "_Generated with BibTeX from \`${BIB_FILE}\`._"
             echo
-            echo "Choose a journal style:"
-            echo
-            cat "${WORKDIR}/style-radio-chooser.md"
+            echo "Open a journal style below to view that bibliography."
             echo
             cat "${WORKDIR}/style-sections.md"
             echo "<!-- bibliography:end -->"

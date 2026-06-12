@@ -37,10 +37,8 @@ const renderBibliography = (data) => {
     <header class="site-header">
       <div class="header-inner">
         <p class="eyebrow">Bibliography</p>
-        <h1>Mine artikler</h1>
-        <p class="source-line">
-          Generated from <code>${escapeHtml(data.source)}</code>
-        </p>
+        <h1>Bibliography of Jacob Simonsen</h1>
+        <p class="source-line">Statistician, M.Sc. and PhD</p>
       </div>
     </header>
 
@@ -49,7 +47,7 @@ const renderBibliography = (data) => {
         <div class="style-panel-header">
           <div>
             <h2 id="style-heading">Citation style</h2>
-            <p><span data-style-count></span> styles generated with BibTeX</p>
+            <p>Choose one of the available BibTeX styles.</p>
           </div>
           <label class="style-select-label">
             <span>Style</span>
@@ -62,20 +60,6 @@ const renderBibliography = (data) => {
                 .join("")}
             </select>
           </label>
-        </div>
-
-        <div class="style-tabs" role="tablist" aria-label="Citation style">
-          ${data.styles
-            .map(
-              (style) => `
-                <button class="style-button" type="button" role="tab" data-style-id="${escapeHtml(
-                  style.id,
-                )}">
-                  ${escapeHtml(style.label)}
-                </button>
-              `,
-            )
-            .join("")}
         </div>
       </section>
 
@@ -92,14 +76,10 @@ const renderBibliography = (data) => {
     </main>
   `;
 
-  const styleCount = app.querySelector("[data-style-count]");
   const selectedLabel = app.querySelector("[data-selected-label]");
   const entryCount = app.querySelector("[data-entry-count]");
   const bibliographyBody = app.querySelector("[data-bibliography-body]");
-  const styleButtons = [...app.querySelectorAll("[data-style-id]")];
   const styleSelect = app.querySelector("[data-style-select]");
-
-  styleCount.textContent = data.styles.length;
 
   const setSelectedStyle = (style, updateHash = true) => {
     selectedStyle = style;
@@ -108,26 +88,10 @@ const renderBibliography = (data) => {
     bibliographyBody.innerHTML = style.html;
     styleSelect.value = style.id;
 
-    styleButtons.forEach((button) => {
-      const isSelected = button.dataset.styleId === style.id;
-      button.classList.toggle("is-selected", isSelected);
-      button.setAttribute("aria-selected", String(isSelected));
-      button.tabIndex = isSelected ? 0 : -1;
-    });
-
     if (updateHash) {
       history.replaceState(null, "", `#${style.anchor}`);
     }
   };
-
-  styleButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const style = data.styles.find((item) => item.id === button.dataset.styleId);
-      if (style) {
-        setSelectedStyle(style);
-      }
-    });
-  });
 
   styleSelect.addEventListener("change", () => {
     const style = data.styles.find((item) => item.id === styleSelect.value);
