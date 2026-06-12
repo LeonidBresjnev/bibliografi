@@ -23,7 +23,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends texlive-latex-base pandoc
 
-      - name: Generate bibliography sections in README with BibTeX
+      - name: Generate README bibliography with BibTeX
         run: |
           set -euo pipefail
 
@@ -40,9 +40,15 @@ jobs:
           cp bibliography-styles.tsv "${WORKDIR}/styles.tsv"
           sed -i -e 's/^[[:space:]]*//' -e '/^$/d' "${WORKDIR}/styles.tsv"
 
-          while IFS=$'\t' read -r style_id style_label style_url; do
-            curl -fsSL "${style_url}" -o "${WORKDIR}/${style_id}.bst"
-          done < "${WORKDIR}/styles.tsv"
+          STYLE_ID="biom"
+          STYLE_LABEL="$(awk -F $'\t' -v style_id="${STYLE_ID}" '$1 == style_id { print $2 }' "${WORKDIR}/styles.tsv")"
+          STYLE_URL="$(awk -F $'\t' -v style_id="${STYLE_ID}" '$1 == style_id { print $3 }' "${WORKDIR}/styles.tsv")"
+          if [ -z "${STYLE_LABEL}" ] || [ -z "${STYLE_URL}" ]; then
+            echo "Could not find Biometrics style in bibliography-styles.tsv."
+            exit 1
+          fi
+
+          curl -fsSL "${STYLE_URL}" -o "${WORKDIR}/${STYLE_ID}.bst"
 
           generate_style() {
             local style_id="$1"
@@ -69,46 +75,115 @@ jobs:
               "${WORKDIR}/${style_id}.md"
           }
 
-          render_style() {
-            local style_id="$1"
-            local label="$2"
-            local anchor_id="$3"
-            local open_attr="${4:-}"
+          generate_style "${STYLE_ID}"
 
-            echo "<details${open_attr} name=\"bibliography-style\" id=\"${anchor_id}\">"
-            echo "<summary><strong>${label}</strong></summary>"
-            echo
-            cat "${WORKDIR}/${style_id}.md"
-            echo
-            echo "</details>"
-            echo
-          }
+          WORKDIR="${WORKDIR}" BIB_FILE="${BIB_FILE}" STYLE_ID="${STYLE_ID}" python3 - <<'PY'
+          import html
+          import os
+          import re
+          from pathlib import Path
 
-          while IFS=$'\t' read -r style_id style_label style_url; do
-            generate_style "${style_id}"
-          done < "${WORKDIR}/styles.tsv"
+          workdir = Path(os.environ["WORKDIR"])
+          bib_path = Path(os.environ["BIB_FILE"])
+          style_id = os.environ["STYLE_ID"]
 
-          : > "${WORKDIR}/style-sections.md"
-          is_first=1
-          while IFS=$'\t' read -r style_id style_label style_url; do
-            anchor_id="bibliography-style-${style_id}"
-            open_attr=""
-            if [ "${is_first}" -eq 1 ]; then
-              open_attr=" open"
-              is_first=0
-            fi
+          def read_balanced(text, start, opener, closer):
+            level = 1
+            i = start
+            while i < len(text) and level:
+              if text[i] == opener:
+                level += 1
+              elif text[i] == closer:
+                level -= 1
+              i += 1
+            return text[start:i - 1], i
 
-            render_style "${style_id}" "${style_label}" "${anchor_id}" "${open_attr}" \
-              >> "${WORKDIR}/style-sections.md"
-          done < "${WORKDIR}/styles.tsv"
+          def iter_bib_entries(text):
+            entry_start = re.compile(r"@\w+\s*\{\s*([^,\s]+)\s*,", re.MULTILINE)
+            for match in entry_start.finditer(text):
+              key = match.group(1)
+              body, _end = read_balanced(text, match.end(), "{", "}")
+              yield key, body
+
+          def read_field_value(text, start):
+            while start < len(text) and text[start].isspace():
+              start += 1
+            if start >= len(text):
+              return ""
+
+            if text[start] == "{":
+              value, _end = read_balanced(text, start + 1, "{", "}")
+              return value
+
+            if text[start] == '"':
+              end = start + 1
+              escaped = False
+              while end < len(text):
+                if text[end] == '"' and not escaped:
+                  break
+                escaped = text[end] == "\\" and not escaped
+                if text[end] != "\\":
+                  escaped = False
+                end += 1
+              return text[start + 1:end]
+
+            end = start
+            while end < len(text) and text[end] not in ",\n":
+              end += 1
+            return text[start:end]
+
+          def extract_dois(bib_text):
+            dois = {}
+            for key, body in iter_bib_entries(bib_text):
+              field = re.search(r"(?im)^\s*doi\s*=", body)
+              if not field:
+                continue
+              doi = read_field_value(body, field.end()).strip()
+              doi = re.sub(r"\s+", "", doi)
+              if doi:
+                dois[key] = doi
+            return dois
+
+          bib_text = bib_path.read_text(encoding="utf-8")
+          dois = extract_dois(bib_text)
+
+          bbl_text = (workdir / f"{style_id}.bbl").read_text(encoding="utf-8")
+          citation_keys = re.findall(r"\\bibitem(?:\[[^\]]*\])?\{([^}]+)\}", bbl_text)
+
+          markdown_path = workdir / f"{style_id}.md"
+          entries = [
+            block.strip()
+            for block in re.split(r"\n\s*\n", markdown_path.read_text(encoding="utf-8").strip())
+            if block.strip()
+          ]
+
+          if len(citation_keys) != len(entries):
+            raise SystemExit(
+              f"Expected {len(citation_keys)} rendered bibliography entries, found {len(entries)}."
+            )
+
+          rendered_entries = []
+          for key, entry in zip(citation_keys, entries):
+            doi = dois.get(key)
+            if doi:
+              safe_doi = html.escape(doi, quote=True)
+              entry = (
+                f'{entry}\n<br/>DOI: '
+                f'<a href="https://doi.org/{safe_doi}">{safe_doi}</a>'
+              )
+            rendered_entries.append(entry)
+
+          (workdir / f"{style_id}-with-doi.md").write_text(
+            "\n\n".join(rendered_entries) + "\n",
+            encoding="utf-8",
+          )
+          PY
 
           {
             echo "<!-- bibliography:start -->"
-            echo "_Generated with BibTeX from \`${BIB_FILE}\`._"
+            echo "_Generated with BibTeX from \`${BIB_FILE}\` using the ${STYLE_LABEL} style._"
             echo
-            echo "Open a journal style below to view that bibliography."
-            echo
-            cat "${WORKDIR}/style-sections.md"
+            cat "${WORKDIR}/${STYLE_ID}-with-doi.md"
             echo "<!-- bibliography:end -->"
           } > "${WORKDIR}/bibliography-section.md"
 
