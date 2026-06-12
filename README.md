@@ -34,6 +34,14 @@ Bager P, Simonsen J, Nielsen NM, et al. Cesarean section and offspring’s
 risk of inflammatory bowel disease: a national cohort study.
 *Inflammatory bowel diseases*, 2012;18:857–862.
 
+Bjorn-Mortensen K, Andersen AB, Koch A, et al. Tuberculosis outbreak in
+East Greenland: groups at risk in an isolated arctic setting. *The
+European respiratory journal*, 2015;46:865–869.
+
+Bjorn-Mortensen K, Ladefoged K, Simonsen J, et al. Erythema nodosum and
+the risk of tuberculosis in a high incidence setting. *International
+journal of circumpolar health*, 2016;75:32,666.
+
 Bräuner EV, Forchhammer L, Møller P, et al. Exposure to ultrafine
 particles from ambient air and oxidative stress-induced DNA damage.
 *Environmental health perspectives*, 2007;115:1177–1182.
@@ -279,11 +287,26 @@ cervical neoplasia: a population-based nationwide cohort study.
 practice journal of the American Gastroenterological Association*,
 2015;13:693–700.e1.
 
+Röser D, Simonsen J, Nielsen HV, et al. Dientamoeba fragilis in Denmark:
+epidemiological experience derived from four years of routine real-time
+PCR. *European journal of clinical microbiology & infectious diseases :
+official publication of the European Society of Clinical Microbiology*,
+2013;32:1303–1310.
+
+Röser D, Simonsen J, Nielsen HV, et al. History of antimicrobial use and
+the risk of Dientamoeba fragilis infection. *European journal of
+clinical microbiology & infectious diseases : official publication of
+the European Society of Clinical Microbiology*, 2015;34:1145–1151.
+
 Röser D, Simonsen J, Stensvold CR, et al. Metronidazole therapy for
 treating dientamoebiasis in children is not associated with better
 clinical outcomes: a randomized, double-blinded and placebo-controlled
 clinical trial. *Clinical infectious diseases : an official publication
 of the Infectious Diseases Society of America*, 2014;58:1692–1699.
+
+Rønn PF, Dalby T, Simonsen J, et al. Seroepidemiology of pertussis in a
+cross-sectional study of an adult general population in Denmark.
+*Epidemiology and infection*, 2014;142:729–737.
 
 Simonsen J, Frisch M, Ethelberg S. Socioeconomic risk factors for
 bacterial gastrointestinal infections. *Epidemiology (Cambridge, Mass)*,
@@ -705,6 +728,31 @@ Nielsen NM, Munger KL, Koch-Henriksen N, *et al.* Neonatal vitamin d
 status and risk of multiple sclerosis: A population-based case-control
 study. *Neurology* 2017;**88**:44–51.
 
+Bjorn-Mortensen K, Ladefoged K, Simonsen J, *et al.* Erythema nodosum
+and the risk of tuberculosis in a high incidence setting. *International
+journal of circumpolar health* 2016;**75**:32666.
+
+Bjorn-Mortensen K, Andersen AB, Koch A, *et al.* Tuberculosis outbreak
+in east greenland: groups at risk in an isolated arctic setting. *The
+European respiratory journal* 2015;**46**:865–869.
+
+Röser D, Simonsen J, Nielsen HV, Stensvold CR, Mølbak K. History of
+antimicrobial use and the risk of dientamoeba fragilis infection.
+*European journal of clinical microbiology & infectious diseases :
+official publication of the European Society of Clinical Microbiology*
+2015;**34**:1145–1151.
+
+Röser D, Simonsen J, Nielsen HV, Stensvold CR, Mølbak K. Dientamoeba
+fragilis in denmark: epidemiological experience derived from four years
+of routine real-time pcr. *European journal of clinical microbiology &
+infectious diseases : official publication of the European Society of
+Clinical Microbiology* 2013;**32**:1303–1310.
+
+Rønn PF, Dalby T, Simonsen J, Jørgensen CS, Linneberg A, Krogfelt KA.
+Seroepidemiology of pertussis in a cross-sectional study of an adult
+general population in denmark. *Epidemiology and infection*
+2014;**142**:729–737.
+
 
 </details>
 
@@ -712,7 +760,7 @@ study. *Neurology* 2017;**88**:44–51.
 <summary><strong>Biometrika</strong></summary>
 
 
-73 natexlab
+78 natexlab
 
 <span class="smallcaps">Andersohn, F.</span>,
 <span class="smallcaps">Such, P.</span>, <span class="smallcaps">Jan,
@@ -747,6 +795,31 @@ diseases* **201**, 898–902.
 <span class="smallcaps">Frisch, M.</span> (2012). Cesarean section and
 offspring’s risk of inflammatory bowel disease: a national cohort study.
 *Inflammatory bowel diseases* **18**, 857–862.
+
+<span class="smallcaps">Bjorn-Mortensen, K.</span>,
+<span class="smallcaps">Andersen, A. B.</span>,
+<span class="smallcaps">Koch, A.</span>,
+<span class="smallcaps">Ladefoged, K.</span>,
+<span class="smallcaps">Lillebaek, T.</span>,
+<span class="smallcaps">Michelsen, S. W.</span>,
+<span class="smallcaps">Rendal, T.</span>,
+<span class="smallcaps">Andersson, M.</span>,
+<span class="smallcaps">Simonsen, J.</span> &
+<span class="smallcaps">Soborg, B.</span> (2015). Tuberculosis outbreak
+in east greenland: groups at risk in an isolated arctic setting. *The
+European respiratory journal* **46**, 865–869.
+
+<span class="smallcaps">Bjorn-Mortensen, K.</span>,
+<span class="smallcaps">Ladefoged, K.</span>,
+<span class="smallcaps">Simonsen, J.</span>,
+<span class="smallcaps">Michelsen, S. W.</span>,
+<span class="smallcaps">Sørensen, H. C. F.</span>,
+<span class="smallcaps">Koch, A.</span>,
+<span class="smallcaps">Lillebaek, T.</span>,
+<span class="smallcaps">Andersen, A. B.</span> &
+<span class="smallcaps">Soborg, B.</span> (2016). Erythema nodosum and
+the risk of tuberculosis in a high incidence setting. *International
+journal of circumpolar health* **75**, 32666.
 
 <span class="smallcaps">Bräuner, E. V.</span>,
 <span class="smallcaps">Forchhammer, L.</span>,
@@ -1233,6 +1306,26 @@ practice journal of the American Gastroenterological Association*
 
 <span class="smallcaps">Röser, D.</span>,
 <span class="smallcaps">Simonsen, J.</span>,
+<span class="smallcaps">Nielsen, H. V.</span>,
+<span class="smallcaps">Stensvold, C. R.</span> &
+<span class="smallcaps">Mølbak, K.</span> (2013). Dientamoeba fragilis
+in denmark: epidemiological experience derived from four years of
+routine real-time pcr. *European journal of clinical microbiology &
+infectious diseases : official publication of the European Society of
+Clinical Microbiology* **32**, 1303–1310.
+
+<span class="smallcaps">Röser, D.</span>,
+<span class="smallcaps">Simonsen, J.</span>,
+<span class="smallcaps">Nielsen, H. V.</span>,
+<span class="smallcaps">Stensvold, C. R.</span> &
+<span class="smallcaps">Mølbak, K.</span> (2015). History of
+antimicrobial use and the risk of dientamoeba fragilis infection.
+*European journal of clinical microbiology & infectious diseases :
+official publication of the European Society of Clinical Microbiology*
+**34**, 1145–1151.
+
+<span class="smallcaps">Röser, D.</span>,
+<span class="smallcaps">Simonsen, J.</span>,
 <span class="smallcaps">Stensvold, C. R.</span>,
 <span class="smallcaps">Olsen, K. E. P.</span>,
 <span class="smallcaps">Bytzer, P.</span>,
@@ -1242,6 +1335,15 @@ for treating dientamoebiasis in children is not associated with better
 clinical outcomes: a randomized, double-blinded and placebo-controlled
 clinical trial. *Clinical infectious diseases : an official publication
 of the Infectious Diseases Society of America* **58**, 1692–1699.
+
+<span class="smallcaps">Rønn, P. F.</span>,
+<span class="smallcaps">Dalby, T.</span>,
+<span class="smallcaps">Simonsen, J.</span>,
+<span class="smallcaps">Jørgensen, C. S.</span>,
+<span class="smallcaps">Linneberg, A.</span> &
+<span class="smallcaps">Krogfelt, K. A.</span> (2014). Seroepidemiology
+of pertussis in a cross-sectional study of an adult general population
+in denmark. *Epidemiology and infection* **142**, 729–737.
 
 <span class="smallcaps">Simonsen, J.</span>,
 <span class="smallcaps">Frisch, M.</span> &
@@ -1411,6 +1513,19 @@ intestinal bacterial infection.  **201**, 898–902.
 Nete Munk and Frisch, Morten</span>. (2012, May). Cesarean section and
 offspring’s risk of inflammatory bowel disease: a national cohort study.
  **18**, 857–862.
+
+<span class="smallcaps">Bjorn-Mortensen, Karen, Andersen, Aase B., Koch,
+Anders, Ladefoged, Karin, Lillebaek, Troels, Michelsen, Sascha W.,
+Rendal, Thomas, Andersson, Mikael, Simonsen, Jacob and Soborg,
+Bolette</span>. (2015, September). Tuberculosis outbreak in east
+greenland: groups at risk in an isolated arctic setting.  **46**,
+865–869.
+
+<span class="smallcaps">Bjorn-Mortensen, Karen, Ladefoged, Karin,
+Simonsen, Jacob, Michelsen, Sascha W., Sørensen, Hans Christian F.,
+Koch, Anders, Lillebaek, Troels, Andersen, Aase Bengaard and Soborg,
+Bolette</span>. (2016). Erythema nodosum and the risk of tuberculosis in
+a high incidence setting.  **75**, 32666.
 
 <span class="smallcaps">Bräuner, Elvira Vaclavik, Forchhammer, Lykke,
 Møller, Peter, Simonsen, Jacob, Glasius, Marianne, Wåhlin, Peter,
@@ -1698,12 +1813,27 @@ Frisch, Morten, Langholz, Ebbe and Jess, Tine</span>. (2015, April).
 Inflammatory bowel disease and cervical neoplasia: a population-based
 nationwide cohort study.  **13**, 693–700.e1.
 
+<span class="smallcaps">Röser, D., Simonsen, J., Nielsen, H. V.,
+Stensvold, C. R. and Mølbak, K.</span> (2013, October). Dientamoeba
+fragilis in denmark: epidemiological experience derived from four years
+of routine real-time pcr.  **32**, 1303–1310.
+
+<span class="smallcaps">Röser, D., Simonsen, J., Nielsen, H. V.,
+Stensvold, C. R. and Mølbak, K.</span> (2015, June). History of
+antimicrobial use and the risk of dientamoeba fragilis infection.
+ **34**, 1145–1151.
+
 <span class="smallcaps">Röser, Dennis, Simonsen, Jacob, Stensvold,
 Christen Rune, Olsen, Katharina E. P., Bytzer, Peter, Nielsen, Henrik V.
 and Mølbak, Kåre</span>. (2014, June). Metronidazole therapy for
 treating dientamoebiasis in children is not associated with better
 clinical outcomes: a randomized, double-blinded and placebo-controlled
 clinical trial.  **58**, 1692–1699.
+
+<span class="smallcaps">Rønn, P. F., Dalby, T., Simonsen, J., Jørgensen,
+C. S., Linneberg, A. and Krogfelt, K. A.</span> (2014, April).
+Seroepidemiology of pertussis in a cross-sectional study of an adult
+general population in denmark.  **142**, 729–737.
 
 <span class="smallcaps">Simonsen, Jacob, Frisch, Morten and Ethelberg,
 Steen</span>. (2008*a*, March). Socioeconomic risk factors for bacterial
@@ -1809,6 +1939,16 @@ delivery and risk of intestinal bacterial infection. **201,** 898–902.
 Bager, P., Simonsen, J., Nielsen, N. M., and Frisch, M. (2012). Cesarean
 section and offspring’s risk of inflammatory bowel disease: a national
 cohort study. **18,** 857–862.
+
+Bjorn-Mortensen, K., Andersen, A. B., Koch, A., Ladefoged, K.,
+Lillebaek, T., Michelsen, S. W., Rendal, T., Andersson, M., Simonsen,
+J., and Soborg, B. (2015). Tuberculosis outbreak in east greenland:
+groups at risk in an isolated arctic setting. **46,** 865–869.
+
+Bjorn-Mortensen, K., Ladefoged, K., Simonsen, J., Michelsen, S. W.,
+Sørensen, H. C. F., Koch, A., Lillebaek, T., Andersen, A. B., and
+Soborg, B. (2016). Erythema nodosum and the risk of tuberculosis in a
+high incidence setting. **75,** 32666.
 
 Bräuner, E. V., Forchhammer, L., Møller, P., Simonsen, J., Glasius, M.,
 Wåhlin, P., Raaschou-Nielsen, O., and Loft, S. (2007). Exposure to
@@ -2052,11 +2192,24 @@ Rungoe, C., Simonsen, J., Riis, L., Frisch, M., Langholz, E., and Jess,
 T. (2015). Inflammatory bowel disease and cervical neoplasia: a
 population-based nationwide cohort study. **13,** 693–700.e1.
 
+Röser, D., Simonsen, J., Nielsen, H. V., Stensvold, C. R., and Mølbak,
+K. (2013). Dientamoeba fragilis in denmark: epidemiological experience
+derived from four years of routine real-time pcr. **32,** 1303–1310.
+
+Röser, D., Simonsen, J., Nielsen, H. V., Stensvold, C. R., and Mølbak,
+K. (2015). History of antimicrobial use and the risk of dientamoeba
+fragilis infection. **34,** 1145–1151.
+
 Röser, D., Simonsen, J., Stensvold, C. R., Olsen, K. E. P., Bytzer, P.,
 Nielsen, H. V., and Mølbak, K. (2014). Metronidazole therapy for
 treating dientamoebiasis in children is not associated with better
 clinical outcomes: a randomized, double-blinded and placebo-controlled
 clinical trial. **58,** 1692–1699.
+
+Rønn, P. F., Dalby, T., Simonsen, J., Jørgensen, C. S., Linneberg, A.,
+and Krogfelt, K. A. (2014). Seroepidemiology of pertussis in a
+cross-sectional study of an adult general population in denmark.
+**142,** 729–737.
 
 Simonsen, J., Frisch, M., and Ethelberg, S. (2008). Socioeconomic risk
 factors for bacterial gastrointestinal infections. **19,** 282–290.
@@ -2152,6 +2305,16 @@ infectious diseases* **201**, 898–902.
 Bager, P., Simonsen, J., Nielsen, N. M., and Frisch, M. (2012). Cesarean
 section and offspring’s risk of inflammatory bowel disease: a national
 cohort study. *Inflammatory bowel diseases* **18**, 857–862.
+
+Bjorn-Mortensen, K., Andersen, A. B., Koch, A., Ladefoged, K.,
+Lillebaek, T., *et al.* (2015). Tuberculosis outbreak in East Greenland:
+groups at risk in an isolated arctic setting. *The European respiratory
+journal* **46**, 865–869.
+
+Bjorn-Mortensen, K., Ladefoged, K., Simonsen, J., Michelsen, S. W.,
+Sørensen, H. C. F., *et al.* (2016). Erythema nodosum and the risk of
+tuberculosis in a high incidence setting. *International journal of
+circumpolar health* **75**, 32666.
 
 Bräuner, E. V., Forchhammer, L., Møller, P., Simonsen, J., Glasius, M.,
 *et al.* (2007). Exposure to ultrafine particles from ambient air and
@@ -2420,12 +2583,29 @@ population-based nationwide cohort study. *Clinical gastroenterology and
 hepatology : the official clinical practice journal of the American
 Gastroenterological Association* **13**, 693–700.e1.
 
+Röser, D., Simonsen, J., Nielsen, H. V., Stensvold, C. R., and Mølbak,
+K. (2013). Dientamoeba fragilis in Denmark: epidemiological experience
+derived from four years of routine real-time PCR. *European journal of
+clinical microbiology & infectious diseases : official publication of
+the European Society of Clinical Microbiology* **32**, 1303–1310.
+
+Röser, D., Simonsen, J., Nielsen, H. V., Stensvold, C. R., and Mølbak,
+K. (2015). History of antimicrobial use and the risk of Dientamoeba
+fragilis infection. *European journal of clinical microbiology &
+infectious diseases : official publication of the European Society of
+Clinical Microbiology* **34**, 1145–1151.
+
 Röser, D., Simonsen, J., Stensvold, C. R., Olsen, K. E. P., Bytzer, P.,
 *et al.* (2014). Metronidazole therapy for treating dientamoebiasis in
 children is not associated with better clinical outcomes: a randomized,
 double-blinded and placebo-controlled clinical trial. *Clinical
 infectious diseases : an official publication of the Infectious Diseases
 Society of America* **58**, 1692–1699.
+
+Rønn, P. F., Dalby, T., Simonsen, J., Jørgensen, C. S., Linneberg, A.,
+*et al.* (2014). Seroepidemiology of pertussis in a cross-sectional
+study of an adult general population in Denmark. *Epidemiology and
+infection* **142**, 729–737.
 
 Simonsen, J., Frisch, M., and Ethelberg, S. (2008a). Socioeconomic risk
 factors for bacterial gastrointestinal infections. *Epidemiology
@@ -2512,7 +2692,7 @@ polio booster vaccination in the Danish childhood vaccination database.
 <summary><strong>Journal of Statistical Software</strong></summary>
 
 
-73 urlstyle
+78 urlstyle
 
 Andersohn F, Such P, Jan M, Kalu U, McDonough J, Reinold J, Riedel O,
 Trifirò G, Ientile V, Tari M, Pastorello M, Arana A, Forns J,
@@ -2531,6 +2711,18 @@ Bager P, Simonsen J, Nielsen NM, Frisch M (2012). “Cesarean section and
 offspring’s risk of inflammatory bowel disease: a national cohort
 study.” *Inflammatory bowel diseases*, **18**, 857–862. ISSN 1536-4844.
 doi:10.1002/ibd.21805.
+
+Bjorn-Mortensen K, Andersen AB, Koch A, Ladefoged K, Lillebaek T,
+Michelsen SW, Rendal T, Andersson M, Simonsen J, Soborg B (2015).
+“Tuberculosis outbreak in East Greenland: groups at risk in an isolated
+arctic setting.” *The European respiratory journal*, **46**, 865–869.
+ISSN 1399-3003. doi:10.1183/09031936.00012915.
+
+Bjorn-Mortensen K, Ladefoged K, Simonsen J, Michelsen SW, Sørensen HCF,
+Koch A, Lillebaek T, Andersen AB, Soborg B (2016). “Erythema nodosum and
+the risk of tuberculosis in a high incidence setting.” *International
+journal of circumpolar health*, **75**, 32666. ISSN 2242-3982.
+doi:10.3402/ijch.v75.32666.
 
 Bräuner EV, Forchhammer L, Møller P, Simonsen J, Glasius M, Wåhlin P,
 Raaschou-Nielsen O, Loft S (2007). “Exposure to ultrafine particles from
@@ -2835,6 +3027,19 @@ the official clinical practice journal of the American
 Gastroenterological Association*, **13**, 693–700.e1. ISSN 1542-7714.
 doi:10.1016/j.cgh.2014.07.036.
 
+Röser D, Simonsen J, Nielsen HV, Stensvold CR, Mølbak K (2013).
+“Dientamoeba fragilis in Denmark: epidemiological experience derived
+from four years of routine real-time PCR.” *European journal of clinical
+microbiology & infectious diseases : official publication of the
+European Society of Clinical Microbiology*, **32**, 1303–1310. ISSN
+1435-4373. doi:10.1007/s10096-013-1880-2.
+
+Röser D, Simonsen J, Nielsen HV, Stensvold CR, Mølbak K (2015). “History
+of antimicrobial use and the risk of Dientamoeba fragilis infection.”
+*European journal of clinical microbiology & infectious diseases :
+official publication of the European Society of Clinical Microbiology*,
+**34**, 1145–1151. ISSN 1435-4373. doi:10.1007/s10096-015-2334-9.
+
 Röser D, Simonsen J, Stensvold CR, Olsen KEP, Bytzer P, Nielsen HV,
 Mølbak K (2014). “Metronidazole therapy for treating dientamoebiasis in
 children is not associated with better clinical outcomes: a randomized,
@@ -2842,6 +3047,11 @@ double-blinded and placebo-controlled clinical trial.” *Clinical
 infectious diseases : an official publication of the Infectious Diseases
 Society of America*, **58**, 1692–1699. ISSN 1537-6591.
 doi:10.1093/cid/ciu188.
+
+Rønn PF, Dalby T, Simonsen J, Jørgensen CS, Linneberg A, Krogfelt KA
+(2014). “Seroepidemiology of pertussis in a cross-sectional study of an
+adult general population in Denmark.” *Epidemiology and infection*,
+**142**, 729–737. ISSN 1469-4409. doi:10.1017/S0950268813002446.
 
 Simonsen J, Frisch M, Ethelberg S (2008a). “Socioeconomic risk factors
 for bacterial gastrointestinal infections.” *Epidemiology (Cambridge,
@@ -2951,6 +3161,16 @@ vaccination in the Danish childhood vaccination database.” *Vaccine*,
 <div class="barticle">
 
 , , (). .
+
+
+<div class="barticle">
+
+, , , , , , , , (). .
+
+
+<div class="barticle">
+
+, , , , , , , (). .
 
 
 <div class="barticle">
@@ -3220,7 +3440,22 @@ vaccination in the Danish childhood vaccination database.” *Vaccine*,
 
 <div class="barticle">
 
+, , , (). .
+
+
+<div class="barticle">
+
+, , , (). .
+
+
+<div class="barticle">
+
 , , , , , (). .
+
+
+<div class="barticle">
+
+, , , , (). .
 
 
 <div class="barticle">
