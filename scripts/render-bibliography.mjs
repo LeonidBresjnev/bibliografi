@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
 
-const BIBTEX_LOGO = "$`\\mathrm{Bib}\\TeX`$";
+const BIBTEX_LOGO = "$\\mathrm{Bib}\\TeX$";
 
 const usage = () => {
   throw new Error("Usage: node scripts/render-bibliography.mjs <readme|site>");
@@ -216,7 +216,7 @@ if (mode === "readme") {
   const { markdown } = renderMarkdown(styleId, doiMap);
   const section = [
     "<!-- bibliography:start -->",
-    `_Generated with ${BIBTEX_LOGO} from \`${bibFile}\` using the ${style.label} style._`,
+    `Generated with ${BIBTEX_LOGO} from \`${bibFile}\` using the ${style.label} style.`,
     "",
     markdown,
     "<!-- bibliography:end -->",
