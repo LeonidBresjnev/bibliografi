@@ -2,6 +2,9 @@ import "./styles.css";
 
 const app = document.querySelector("#app");
 
+const BIBTEX_LOGO = String.raw`\(\mathrm{Bib}\TeX\)`;
+const pendingMathElements = new Set();
+
 const escapeHtml = (value) =>
   String(value)
     .replaceAll("&", "&amp;")
@@ -17,17 +20,34 @@ const findInitialStyle = (styles) => {
   return styles.find((style) => style.anchor === hash || style.id === hash) ?? styles[0];
 };
 
+const typesetMath = (element = app) => {
+  if (!window.MathJax?.typesetPromise) {
+    pendingMathElements.add(element);
+    return;
+  }
+
+  window.MathJax.typesetClear?.([element]);
+  window.MathJax.typesetPromise([element]).catch(() => {});
+};
+
+window.addEventListener("load", () => {
+  const elements = [...pendingMathElements];
+  pendingMathElements.clear();
+  elements.forEach((element) => typesetMath(element));
+});
+
 const renderMissingBibliography = () => {
   app.innerHTML = `
     <main class="empty-state">
       <p class="eyebrow">Bibliography</p>
-      <h1>Waiting for generated BibTeX output</h1>
+      <h1>Waiting for generated ${BIBTEX_LOGO} output</h1>
       <p>
         The web page is ready, but <code>public/bibliography.json</code> is generated
-        by the GitHub Actions workflow after BibTeX and Pandoc render the journal styles.
+        by the GitHub Actions workflow after ${BIBTEX_LOGO} and Pandoc render the journal styles.
       </p>
     </main>
   `;
+  typesetMath(app);
 };
 
 const renderBibliography = (data) => {
@@ -47,7 +67,7 @@ const renderBibliography = (data) => {
         <div class="style-panel-header">
           <div>
             <h2 id="style-heading">Citation style</h2>
-            <p>Choose one of the available BibTeX styles.</p>
+            <p>Choose one of the available ${BIBTEX_LOGO} styles.</p>
           </div>
           <label class="style-select-label">
             <span>Style</span>
@@ -68,6 +88,7 @@ const renderBibliography = (data) => {
           <div>
             <p class="eyebrow">Selected style</p>
             <h2 data-selected-label></h2>
+            <p class="generated-line" data-generated-line></p>
           </div>
           <p class="entry-count"><span data-entry-count></span> entries</p>
         </div>
@@ -77,6 +98,7 @@ const renderBibliography = (data) => {
   `;
 
   const selectedLabel = app.querySelector("[data-selected-label]");
+  const generatedLine = app.querySelector("[data-generated-line]");
   const entryCount = app.querySelector("[data-entry-count]");
   const bibliographyBody = app.querySelector("[data-bibliography-body]");
   const styleSelect = app.querySelector("[data-style-select]");
@@ -84,9 +106,13 @@ const renderBibliography = (data) => {
   const setSelectedStyle = (style, updateHash = true) => {
     selectedStyle = style;
     selectedLabel.textContent = style.label;
+    generatedLine.innerHTML = `Generated with ${BIBTEX_LOGO} from <code>${escapeHtml(
+      data.source ?? "bibliography source",
+    )}</code> using the ${escapeHtml(style.label)} style.`;
     entryCount.textContent = style.entryCount;
     bibliographyBody.innerHTML = style.html;
     styleSelect.value = style.id;
+    typesetMath(app);
 
     if (updateHash) {
       history.replaceState(null, "", `#${style.anchor}`);

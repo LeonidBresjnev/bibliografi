@@ -73,9 +73,14 @@ h2 {
 }
 
 .source-line,
+.generated-line,
 .style-panel p {
   margin-bottom: 0;
   color: #5d635f;
+}
+
+.generated-line {
+  line-height: 1.6;
 }
 
 code {

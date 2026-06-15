@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
 
-const BIBTEX_LOGO = "$\\mathrm{Bib}\\TeX$";
+const BIBTEX_LOGO = "$`\\mathrm{Bib}\\TeX`$";
 
 const usage = () => {
   throw new Error("Usage: node scripts/render-bibliography.mjs <readme|site>");
