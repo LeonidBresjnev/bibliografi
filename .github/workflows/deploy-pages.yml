@@ -12,6 +12,7 @@ on:
       - "package-lock.json"
       - "vite.config.js"
       - "public/**"
+      - "scripts/**"
       - "src/**"
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
@@ -34,6 +35,12 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
 
       - name: Install BibTeX toolchain
         run: |
@@ -84,7 +91,6 @@ jobs:
               -e '/^<\/div>$/d' \
               -e '/^[0-9][0-9]*$/d' \
               "${WORKDIR}/${style_id}.md"
-            pandoc --from=gfm --to=html "${WORKDIR}/${style_id}.md" -o "${WORKDIR}/${style_id}.html"
           }
 
           while IFS=$'\t' read -r style_id style_label style_url; do
@@ -92,47 +98,7 @@ jobs:
           done < "${WORKDIR}/styles.tsv"
 
           mkdir -p public
-          WORKDIR="${WORKDIR}" BIB_FILE="${BIB_FILE}" python3 - <<'PY'
-          import csv
-          import json
-          import os
-          import re
-          from pathlib import Path
-
-          workdir = Path(os.environ["WORKDIR"])
-          bib_file = os.environ["BIB_FILE"]
-          styles = []
-
-          with (workdir / "styles.tsv").open(encoding="utf-8", newline="") as style_file:
-            for style_id, style_label, _style_url in csv.reader(style_file, delimiter="\t"):
-              markdown = (workdir / f"{style_id}.md").read_text(encoding="utf-8").strip()
-              html = (workdir / f"{style_id}.html").read_text(encoding="utf-8").strip()
-              entry_count = len([block for block in re.split(r"\n\s*\n", markdown) if block.strip()])
-              styles.append({
-                "id": style_id,
-                "anchor": f"bibliography-style-{style_id}",
-                "label": style_label,
-                "entryCount": entry_count,
-                "html": html,
-              })
-
-          data = {
-            "source": bib_file,
-            "styles": styles,
-          }
-
-          Path("public").mkdir(exist_ok=True)
-          Path("public/bibliography.json").write_text(
-            json.dumps(data, ensure_ascii=False, indent=2) + "\n",
-            encoding="utf-8",
-          )
-          PY
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
+          WORKDIR="${WORKDIR}" BIB_FILE="${BIB_FILE}" node scripts/render-bibliography.mjs site
 
       - name: Install npm dependencies
         run: npm ci

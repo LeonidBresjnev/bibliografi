@@ -5,6 +5,7 @@ on:
     paths:
       - "**/*.bib"
       - "bibliography-styles.tsv"
+      - "scripts/**"
       - ".github/workflows/update-bibliography.yml"
   workflow_dispatch:
 
@@ -17,6 +18,11 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
       - name: Install BibTeX toolchain
         run: |
@@ -77,151 +83,7 @@ jobs:
 
           generate_style "${STYLE_ID}"
 
-          WORKDIR="${WORKDIR}" BIB_FILE="${BIB_FILE}" STYLE_ID="${STYLE_ID}" python3 - <<'PY'
-          import html
-          import os
-          import re
-          from pathlib import Path
-
-          workdir = Path(os.environ["WORKDIR"])
-          bib_path = Path(os.environ["BIB_FILE"])
-          style_id = os.environ["STYLE_ID"]
-
-          def read_balanced(text, start, opener, closer):
-            level = 1
-            i = start
-            while i < len(text) and level:
-              if text[i] == opener:
-                level += 1
-              elif text[i] == closer:
-                level -= 1
-              i += 1
-            return text[start:i - 1], i
-
-          def iter_bib_entries(text):
-            entry_start = re.compile(r"@\w+\s*\{\s*([^,\s]+)\s*,", re.MULTILINE)
-            for match in entry_start.finditer(text):
-              key = match.group(1)
-              body, _end = read_balanced(text, match.end(), "{", "}")
-              yield key, body
-
-          def read_field_value(text, start):
-            while start < len(text) and text[start].isspace():
-              start += 1
-            if start >= len(text):
-              return ""
-
-            if text[start] == "{":
-              value, _end = read_balanced(text, start + 1, "{", "}")
-              return value
-
-            if text[start] == '"':
-              end = start + 1
-              escaped = False
-              while end < len(text):
-                if text[end] == '"' and not escaped:
-                  break
-                escaped = text[end] == "\\" and not escaped
-                if text[end] != "\\":
-                  escaped = False
-                end += 1
-              return text[start + 1:end]
-
-            end = start
-            while end < len(text) and text[end] not in ",\n":
-              end += 1
-            return text[start:end]
-
-          def extract_dois(bib_text):
-            dois = {}
-            for key, body in iter_bib_entries(bib_text):
-              field = re.search(r"(?im)^\s*doi\s*=", body)
-              if not field:
-                continue
-              doi = read_field_value(body, field.end()).strip()
-              doi = re.sub(r"\s+", "", doi)
-              if doi:
-                dois[key] = doi
-            return dois
-
-          bib_text = bib_path.read_text(encoding="utf-8")
-          dois = extract_dois(bib_text)
-
-          bbl_text = (workdir / f"{style_id}.bbl").read_text(encoding="utf-8")
-          citation_keys = re.findall(r"\\bibitem(?:\[[^\]]*\])?\{([^}]+)\}", bbl_text)
-
-          markdown_path = workdir / f"{style_id}.md"
-          entries = [
-            block.strip()
-            for block in re.split(r"\n\s*\n", markdown_path.read_text(encoding="utf-8").strip())
-            if block.strip()
-          ]
-
-          if len(citation_keys) != len(entries):
-            raise SystemExit(
-              f"Expected {len(citation_keys)} rendered bibliography entries, found {len(entries)}."
-            )
-
-          rendered_entries = []
-          for key, entry in zip(citation_keys, entries):
-            doi = dois.get(key)
-            if doi:
-              safe_doi = html.escape(doi, quote=True)
-              entry = (
-                f'{entry}\n<br/>DOI: '
-                f'<a href="https://doi.org/{safe_doi}">{safe_doi}</a>'
-              )
-            rendered_entries.append(entry)
-
-          (workdir / f"{style_id}-with-doi.md").write_text(
-            "\n\n".join(rendered_entries) + "\n",
-            encoding="utf-8",
-          )
-          PY
-
-          {
-            echo "<!-- bibliography:start -->"
-            echo "_Generated with BibTeX from \`${BIB_FILE}\` using the ${STYLE_LABEL} style._"
-            echo
-            cat "${WORKDIR}/${STYLE_ID}-with-doi.md"
-            echo "<!-- bibliography:end -->"
-          } > "${WORKDIR}/bibliography-section.md"
-
-          if [ -f README.md ]; then
-            if grep -q "<!-- bibliography:start -->" README.md && grep -q "<!-- bibliography:end -->" README.md; then
-              awk '
-                BEGIN { inside = 0 }
-                /<!-- bibliography:start -->/ {
-                  inside = 1
-                  while ((getline line < section) > 0) print line
-                  close(section)
-                  next
-                }
-                /<!-- bibliography:end -->/ {
-                  inside = 0
-                  next
-                }
-                !inside { print }
-              ' section="${WORKDIR}/bibliography-section.md" README.md > "${WORKDIR}/README.md"
-            else
-              cp README.md "${WORKDIR}/README.md"
-              {
-                echo
-                echo "## Publications"
-                echo
-                cat "${WORKDIR}/bibliography-section.md"
-              } >> "${WORKDIR}/README.md"
-            fi
-          else
-            {
-              echo "# Bibliography"
-              echo
-              echo "## Publications"
-              echo
-              cat "${WORKDIR}/bibliography-section.md"
-            } > "${WORKDIR}/README.md"
-          fi
-          mv "${WORKDIR}/README.md" README.md
+          WORKDIR="${WORKDIR}" BIB_FILE="${BIB_FILE}" STYLE_ID="${STYLE_ID}" node scripts/render-bibliography.mjs readme
 
       - name: Commit README changes
         run: |
