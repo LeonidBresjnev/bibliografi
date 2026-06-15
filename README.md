@@ -3,7 +3,7 @@
 ## Publications
 
 <!-- bibliography:start -->
-Generated with $\mathrm{Bib}\TeX$ from `mine_artikler.bib` using the Biometrics style.
+Generated with $\mathrm{BibTex}$ from `mine_artikler.bib` using the Biometrics style.
 
 Andersohn, F., Such, P., Jan, M., Kalu, U., McDonough, J., Reinold, J.,
 Riedel, O., Trifirò, G., Ientile, V., Tari, M., Pastorello, M., Arana,
