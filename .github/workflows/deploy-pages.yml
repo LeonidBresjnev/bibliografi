@@ -39,7 +39,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - name: Install BibTeX toolchain
@@ -84,13 +84,6 @@ jobs:
             latex -interaction=nonstopmode "${style_id}.tex" >/dev/null
             bibtex "${style_id}" >/dev/null
             popd >/dev/null
-
-            pandoc --from=latex --to=gfm "${WORKDIR}/${style_id}.bbl" -o "${WORKDIR}/${style_id}.md"
-            sed -i \
-              -e '/^<div class="thebibliography">$/d' \
-              -e '/^<\/div>$/d' \
-              -e '/^[0-9][0-9]*$/d' \
-              "${WORKDIR}/${style_id}.md"
           }
 
           while IFS=$'\t' read -r style_id style_label style_url; do

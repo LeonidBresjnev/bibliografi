@@ -16,13 +16,8 @@ if (!workdir || !bibFile) {
   throw new Error("WORKDIR and BIB_FILE must be set.");
 }
 
-const escapeHtml = (value) =>
-  String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+const escapeLatex = (value) =>
+  String(value).replace(/[\\{}%#&_$]/g, (character) => `\\${character}`);
 
 const readBalanced = (text, start, opener, closer) => {
   let level = 1;
@@ -109,38 +104,76 @@ const readStyles = () =>
       return { id, label, url };
     });
 
-const splitEntries = (markdown) =>
+const stripBibliographyWrapper = (markdown) =>
   markdown
-    .trim()
-    .split(/\n\s*\n/)
-    .map((entry) => entry.trim())
-    .filter(Boolean);
+    .split(/\r?\n/)
+    .filter(
+      (line) =>
+        line !== '<div class="thebibliography">' &&
+        line !== "</div>" &&
+        !/^[0-9][0-9]*$/.test(line),
+    )
+    .join("\n")
+    .trim();
 
-const markdownWithDoiLinks = (styleId, doiMap) => {
-  const bbl = readFileSync(join(workdir, `${styleId}.bbl`), "utf8");
-  const citationKeys = [...bbl.matchAll(/\\bibitem(?:\[[^\]]*\])?\{([^}]+)\}/g)].map(
-    (match) => match[1],
-  );
-  const markdownPath = join(workdir, `${styleId}.md`);
-  const entries = splitEntries(readFileSync(markdownPath, "utf8"));
+const runPandoc = (args, description) => {
+  const result = spawnSync("pandoc", args, { stdio: "inherit" });
 
-  if (citationKeys.length !== entries.length) {
-    throw new Error(
-      `Expected ${citationKeys.length} rendered bibliography entries for ${styleId}, found ${entries.length}.`,
-    );
+  if (result.error) {
+    throw result.error;
   }
 
-  return entries
-    .map((entry, index) => {
-      const doi = doiMap.get(citationKeys[index]);
-      if (!doi) {
-        return entry;
-      }
+  if (result.status !== 0) {
+    throw new Error(`${description} failed with exit code ${result.status}.`);
+  }
+};
 
-      const safeDoi = escapeHtml(doi);
-      return `${entry}\n<br/>DOI: <a href="https://doi.org/${safeDoi}">${safeDoi}</a>`;
-    })
-    .join("\n\n");
+const bblWithDoiLinks = (styleId, doiMap) => {
+  const bbl = readFileSync(join(workdir, `${styleId}.bbl`), "utf8");
+  const bibitems = [...bbl.matchAll(/\\bibitem(?:\[[^\]]*\])?\{([^}]+)\}/g)];
+
+  if (bibitems.length === 0) {
+    throw new Error(`No rendered bibliography entries found for ${styleId}.`);
+  }
+
+  const endMatch = /\\end\{thebibliography\}/.exec(bbl.slice(bibitems.at(-1).index));
+  const bibliographyEnd = endMatch ? bibitems.at(-1).index + endMatch.index : bbl.length;
+  const entries = [];
+
+  for (const [index, item] of bibitems.entries()) {
+    const entryStart = item.index;
+    const entryEnd = index + 1 < bibitems.length ? bibitems[index + 1].index : bibliographyEnd;
+    const key = item[1];
+    const doi = doiMap.get(key);
+    let entry = bbl.slice(entryStart, entryEnd).trimEnd();
+
+    if (doi) {
+      entry += `\n\\newblock\\newline DOI: \\href{https://doi.org/${doi}}{${escapeLatex(doi)}}\n`;
+    }
+
+    entries.push(entry);
+  }
+
+  const renderedBbl = `${bbl.slice(0, bibitems[0].index)}${entries.join("\n")}${bbl.slice(
+    bibliographyEnd,
+  )}`;
+  const renderedPath = join(workdir, `${styleId}-with-doi.bbl`);
+  writeFileSync(renderedPath, renderedBbl, "utf8");
+
+  return { entryCount: bibitems.length, path: renderedPath };
+};
+
+const renderMarkdown = (styleId, doiMap) => {
+  const renderedBbl = bblWithDoiLinks(styleId, doiMap);
+  const markdownPath = join(workdir, `${styleId}.md`);
+  runPandoc(
+    ["--from=latex", "--to=gfm", renderedBbl.path, "-o", markdownPath],
+    `Pandoc LaTeX to GFM conversion for ${styleId}`,
+  );
+
+  const markdown = stripBibliographyWrapper(readFileSync(markdownPath, "utf8"));
+  writeFileSync(markdownPath, `${markdown}\n`, "utf8");
+  return { entryCount: renderedBbl.entryCount, markdown };
 };
 
 const replaceReadmeSection = (section) => {
@@ -170,22 +203,6 @@ const replaceReadmeSection = (section) => {
   writeFileSync(readmePath, `${readme.trimEnd()}\n\n## Publications\n\n${section}\n`, "utf8");
 };
 
-const runPandoc = (styleId) => {
-  const result = spawnSync(
-    "pandoc",
-    ["--from=gfm", "--to=html", join(workdir, `${styleId}.md`), "-o", join(workdir, `${styleId}.html`)],
-    { stdio: "inherit" },
-  );
-
-  if (result.error) {
-    throw result.error;
-  }
-
-  if (result.status !== 0) {
-    throw new Error(`Pandoc failed for ${styleId} with exit code ${result.status}.`);
-  }
-};
-
 const doiMap = extractDoiMap(readFileSync(bibFile, "utf8"));
 
 if (mode === "readme") {
@@ -196,12 +213,12 @@ if (mode === "readme") {
     throw new Error(`Could not find ${styleId} in bibliography-styles.tsv.`);
   }
 
-  const bibliography = markdownWithDoiLinks(styleId, doiMap);
+  const { markdown } = renderMarkdown(styleId, doiMap);
   const section = [
     "<!-- bibliography:start -->",
     `_Generated with ${BIBTEX_LOGO} from \`${bibFile}\` using the ${style.label} style._`,
     "",
-    bibliography,
+    markdown,
     "<!-- bibliography:end -->",
     "",
   ].join("\n");
@@ -209,16 +226,18 @@ if (mode === "readme") {
   replaceReadmeSection(section);
 } else if (mode === "site") {
   const styles = readStyles().map((style) => {
-    const markdown = markdownWithDoiLinks(style.id, doiMap);
-    writeFileSync(join(workdir, `${style.id}.md`), `${markdown}\n`, "utf8");
-    runPandoc(style.id);
+    const { entryCount, markdown } = renderMarkdown(style.id, doiMap);
+    runPandoc(
+      ["--from=gfm", "--to=html", join(workdir, `${style.id}.md`), "-o", join(workdir, `${style.id}.html`)],
+      `Pandoc GFM to HTML conversion for ${style.id}`,
+    );
 
     const html = readFileSync(join(workdir, `${style.id}.html`), "utf8").trim();
     return {
       id: style.id,
       anchor: `bibliography-style-${style.id}`,
       label: style.label,
-      entryCount: splitEntries(markdown).length,
+      entryCount,
       html,
     };
   });
