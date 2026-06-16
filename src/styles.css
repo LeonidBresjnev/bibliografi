@@ -1,241 +1,51 @@
-:root {
-  color: #17211d;
-  background: #f7f6f1;
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-}
+@import "tailwindcss";
 
-* {
-  box-sizing: border-box;
-}
+@layer base {
+  :root {
+    background: #f7f6f1;
+    color: #17211d;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
 
-body {
-  min-width: 320px;
-  margin: 0;
-  background:
-    linear-gradient(180deg, rgba(220, 232, 223, 0.85), rgba(247, 246, 241, 0) 320px),
-    #f7f6f1;
-}
+  body {
+    background:
+      linear-gradient(180deg, rgba(220, 232, 223, 0.85), rgba(247, 246, 241, 0) 320px),
+      #f7f6f1;
+  }
 
-select {
-  font: inherit;
-}
-
-.site-header {
-  border-bottom: 1px solid #d8d2c2;
-  background: #fbfaf7;
-}
-
-.header-inner,
-.page-shell,
-.empty-state {
-  width: min(1120px, calc(100% - 32px));
-  margin: 0 auto;
-}
-
-.header-inner {
-  padding: 42px 0 34px;
-}
-
-.eyebrow {
-  margin: 0 0 10px;
-  color: #7a332f;
-  font-size: 0.78rem;
-  font-weight: 760;
-  letter-spacing: 0;
-  text-transform: uppercase;
-}
-
-h1,
-h2,
-p {
-  margin-top: 0;
-}
-
-h1 {
-  max-width: 760px;
-  margin-bottom: 12px;
-  color: #0e1714;
-  font-size: 2.8rem;
-  line-height: 1;
-  letter-spacing: 0;
-}
-
-h2 {
-  margin-bottom: 8px;
-  color: #0e1714;
-  font-size: 1.2rem;
-  line-height: 1.2;
-  letter-spacing: 0;
-}
-
-.source-line,
-.generated-line,
-.style-panel p {
-  margin-bottom: 0;
-  color: #5d635f;
-}
-
-.generated-line {
-  line-height: 1.6;
-}
-
-code {
-  border: 1px solid #d8d2c2;
-  border-radius: 4px;
-  padding: 0.12rem 0.32rem;
-  background: #ffffff;
-  color: #26342f;
-  font-size: 0.92em;
-}
-
-.page-shell {
-  padding: 28px 0 56px;
-}
-
-.style-panel {
-  padding: 0 0 24px;
-  border-bottom: 1px solid #d8d2c2;
-}
-
-.style-panel-header {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 18px;
-}
-
-.style-select-label {
-  display: grid;
-  min-width: 260px;
-  gap: 6px;
-  color: #44504a;
-  font-size: 0.86rem;
-  font-weight: 700;
-}
-
-.style-select-label select {
-  min-height: 42px;
-  border: 1px solid #b8c6bb;
-  border-radius: 6px;
-  padding: 0 38px 0 12px;
-  background: #ffffff;
-  color: #17211d;
-}
-
-.bibliography-section {
-  padding-top: 30px;
-}
-
-.bibliography-heading {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 18px;
-}
-
-.entry-count {
-  margin: 0;
-  color: #7a332f;
-  font-weight: 760;
+  code {
+    @apply rounded border border-[#d8d2c2] bg-white px-[0.32rem] py-[0.12rem] text-[0.92em] text-[#26342f];
+  }
 }
 
 .bibliography-body {
   counter-reset: bibliography;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.03rem;
-  line-height: 1.65;
 }
 
 .bibliography-body p {
-  position: relative;
   counter-increment: bibliography;
-  min-height: 42px;
-  margin: 0;
-  padding: 0 0 22px 48px;
-  color: #1f2723;
+  @apply relative m-0 min-h-[42px] pb-[22px] pl-[38px] text-[#1f2723] md:pl-12;
 }
 
 .bibliography-body p::before {
-  position: absolute;
-  left: 0;
-  top: 0.2rem;
-  width: 30px;
-  color: #8c8f78;
   content: counter(bibliography);
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  font-size: 0.78rem;
-  font-weight: 760;
-  text-align: right;
+  @apply absolute left-0 top-[0.2rem] w-6 text-right font-sans text-[0.78rem] font-[760] text-[#8c8f78] md:w-[30px];
+}
+
+.bibliography-body a {
+  @apply text-[#7a332f] underline decoration-[#c8a39b] underline-offset-4 hover:text-[#5f2724];
 }
 
 .bibliography-body em {
-  color: #25312c;
+  @apply text-[#25312c];
 }
 
 .bibliography-body strong {
-  color: #111815;
+  @apply text-[#111815];
 }
 
 .bibliography-body .smallcaps {
   font-variant: small-caps;
-  letter-spacing: 0.02em;
-}
-
-.empty-state {
-  display: grid;
-  min-height: 100vh;
-  align-content: center;
-  padding: 48px 0;
-}
-
-.empty-state h1 {
-  max-width: 700px;
-}
-
-.empty-state p:last-child {
-  max-width: 720px;
-  color: #4c5752;
-  line-height: 1.6;
-}
-
-@media (max-width: 720px) {
-  .header-inner,
-  .page-shell,
-  .empty-state {
-    width: min(100% - 24px, 1120px);
-  }
-
-  .header-inner {
-    padding: 32px 0 26px;
-  }
-
-  h1 {
-    font-size: 2.15rem;
-  }
-
-  .style-panel-header,
-  .bibliography-heading {
-    display: grid;
-    align-items: start;
-  }
-
-  .style-select-label {
-    min-width: 0;
-  }
-
-  .bibliography-body p {
-    padding-left: 38px;
-  }
-
-  .bibliography-body p::before {
-    width: 24px;
-  }
+  @apply tracking-[0.02em];
 }

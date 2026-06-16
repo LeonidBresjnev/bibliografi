@@ -4,6 +4,15 @@ const app = document.querySelector("#app");
 
 const BIBTEX_LOGO = String.raw`\(\mathrm{Bib}\TeX\)`;
 const pendingMathElements = new Set();
+const SHELL_CLASS =
+  "mx-auto w-[min(1120px,calc(100%_-_24px))] md:w-[min(1120px,calc(100%_-_32px))]";
+const EYEBROW_CLASS =
+  "mb-2.5 text-[0.78rem] font-[760] uppercase tracking-normal text-[#7a332f]";
+const H1_CLASS =
+  "mb-3 max-w-[760px] text-[2.15rem] font-bold leading-none tracking-normal text-[#0e1714] md:text-[2.8rem]";
+const H2_CLASS =
+  "mb-2 text-[1.2rem] font-bold leading-[1.2] tracking-normal text-[#0e1714]";
+const MUTED_TEXT_CLASS = "mb-0 text-[#5d635f]";
 
 const escapeHtml = (value) =>
   String(value)
@@ -38,10 +47,10 @@ window.addEventListener("load", () => {
 
 const renderMissingBibliography = () => {
   app.innerHTML = `
-    <main class="empty-state">
-      <p class="eyebrow">Bibliography</p>
-      <h1>Waiting for generated ${BIBTEX_LOGO} output</h1>
-      <p>
+    <main class="${SHELL_CLASS} grid min-h-screen content-center py-12">
+      <p class="${EYEBROW_CLASS}">Bibliography</p>
+      <h1 class="${H1_CLASS} max-w-[700px]">Waiting for generated ${BIBTEX_LOGO} output</h1>
+      <p class="mb-0 max-w-[720px] leading-[1.6] text-[#4c5752]">
         The web page is ready, but <code>public/bibliography.json</code> is generated
         by the GitHub Actions workflow after ${BIBTEX_LOGO} and Pandoc render the journal styles.
       </p>
@@ -54,24 +63,27 @@ const renderBibliography = (data) => {
   let selectedStyle = findInitialStyle(data.styles);
 
   app.innerHTML = `
-    <header class="site-header">
-      <div class="header-inner">
-        <p class="eyebrow">Bibliography</p>
-        <h1>Bibliography of Jacob Simonsen</h1>
-        <p class="source-line">Statistician, M.Sc. and PhD</p>
+    <header class="border-b border-[#d8d2c2] bg-[#fbfaf7]">
+      <div class="${SHELL_CLASS} py-8 md:pb-[34px] md:pt-[42px]">
+        <p class="${EYEBROW_CLASS}">Bibliography</p>
+        <h1 class="${H1_CLASS}">Bibliography of Jacob Simonsen</h1>
+        <p class="${MUTED_TEXT_CLASS}">Statistician, M.Sc. and PhD</p>
       </div>
     </header>
 
-    <main class="page-shell">
-      <section class="style-panel" aria-labelledby="style-heading">
-        <div class="style-panel-header">
+    <main class="${SHELL_CLASS} pb-14 pt-7">
+      <section class="border-b border-[#d8d2c2] pb-6" aria-labelledby="style-heading">
+        <div class="grid items-start gap-6 md:flex md:items-end md:justify-between">
           <div>
-            <h2 id="style-heading">Citation style</h2>
-            <p>Choose one of the available ${BIBTEX_LOGO} styles.</p>
+            <h2 id="style-heading" class="${H2_CLASS}">Citation style</h2>
+            <p class="${MUTED_TEXT_CLASS}">Choose one of the available ${BIBTEX_LOGO} styles.</p>
           </div>
-          <label class="style-select-label">
+          <label class="grid gap-1.5 text-[0.86rem] font-bold text-[#44504a] md:min-w-[260px]">
             <span>Style</span>
-            <select data-style-select>
+            <select
+              class="min-h-[42px] rounded-md border border-[#b8c6bb] bg-white px-3 pr-[38px] text-[#17211d] outline-none focus:border-[#7a332f] focus:ring-2 focus:ring-[#7a332f]/20"
+              data-style-select
+            >
               ${data.styles
                 .map(
                   (style) =>
@@ -83,16 +95,16 @@ const renderBibliography = (data) => {
         </div>
       </section>
 
-      <section class="bibliography-section" aria-live="polite">
-        <div class="bibliography-heading">
+      <section class="pt-[30px]" aria-live="polite">
+        <div class="mb-[18px] grid items-start gap-5 md:flex md:items-end md:justify-between">
           <div>
-            <p class="eyebrow">Selected style</p>
-            <h2 data-selected-label></h2>
-            <p class="generated-line" data-generated-line></p>
+            <p class="${EYEBROW_CLASS}">Selected style</p>
+            <h2 class="${H2_CLASS}" data-selected-label></h2>
+            <p class="mb-0 leading-[1.6] text-[#5d635f]" data-generated-line></p>
           </div>
-          <p class="entry-count"><span data-entry-count></span> entries</p>
+          <p class="m-0 font-[760] text-[#7a332f]"><span data-entry-count></span> entries</p>
         </div>
-        <div class="bibliography-body" data-bibliography-body></div>
+        <div class="bibliography-body font-serif text-[1.03rem] leading-[1.65]" data-bibliography-body></div>
       </section>
     </main>
   `;

@@ -1,5 +1,7 @@
 # Bibliography
 
+[Rendered version](https://leonidbresjnev.github.io/bibliografi/)
+
 ## Publications
 
 <!-- bibliography:start -->
