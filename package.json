@@ -12,5 +12,8 @@
     "@tailwindcss/vite": "^4.3.1",
     "tailwindcss": "^4.3.1",
     "vite": "^5.4.0"
+  },
+  "dependencies": {
+    "lucide": "^1.20.0"
   }
 }
