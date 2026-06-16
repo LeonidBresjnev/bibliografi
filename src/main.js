@@ -1,5 +1,4 @@
 import createLucideElement from "lucide/dist/esm/createElement.mjs";
-import BookOpenText from "lucide/dist/esm/icons/book-open-text.mjs";
 import ChevronDown from "lucide/dist/esm/icons/chevron-down.mjs";
 import CircleAlert from "lucide/dist/esm/icons/circle-alert.mjs";
 import FileText from "lucide/dist/esm/icons/file-text.mjs";
@@ -15,7 +14,6 @@ const app = document.querySelector("#app");
 const BIBTEX_LOGO = String.raw`\(\mathrm{Bib}\TeX\)`;
 const pendingMathElements = new Set();
 const LUCIDE_ICONS = {
-  "book-open-text": BookOpenText,
   "chevron-down": ChevronDown,
   "circle-alert": CircleAlert,
   "file-text": FileText,
@@ -118,7 +116,6 @@ const renderBibliography = (data) => {
   app.innerHTML = `
     <header class="border-b border-[#d8d2c2] bg-[#fbfaf7]">
       <div class="${SHELL_CLASS} py-8 md:pb-[34px] md:pt-[42px]">
-        <div class="${ICON_BADGE_CLASS}">${icon("book-open-text", "h-6 w-6")}</div>
         <p class="${EYEBROW_CLASS}">
           ${icon("library")}
           <span>Bibliography</span>
